@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "outDir": "./lib",
+        "noImplicitAny": true,
+        "module": "ES2020",
+        "target": "ES2020",
+        "lib": [
+            "DOM",
+            "ES2020"
+        ],
+    },
+    "files": [
+        "src/web-ui.ts"
+    ],
+    "include": [
+        "src/**/*.ts"
+    ]
+}
