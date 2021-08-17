@@ -6,7 +6,9 @@
     "types": "lib/web-ui.d.ts",
     "scripts": {
         "build": "webpack build",
-        "watch": "webpack build -w"
+        "watch": "webpack build -w",
+        "test-webpack": "cd test && webpack serve",
+        "dev-watch": "concurrently npm:watch npm:test-webpack"
     },
     "repository": {
         "type": "git",
@@ -15,9 +17,18 @@
     "author": "Lukas Wagner",
     "license": "MIT",
     "devDependencies": {
+        "@types/uuid": "^8.3.1",
+        "concurrently": "^6.2.1",
+        "html-webpack-plugin": "^5.3.2",
+        "pug": "^3.0.2",
+        "pug-loader": "^2.4.0",
         "ts-loader": "^9.2.5",
         "typescript": "^4.3.5",
         "webpack": "^5.50.0",
-        "webpack-cli": "^4.8.0"
+        "webpack-cli": "^4.8.0",
+        "webpack-dev-server": "^3.11.2"
+    },
+    "dependencies": {
+        "uuid": "^8.3.2"
     }
 }

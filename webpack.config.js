@@ -14,13 +14,14 @@ module.exports = () => {
             extensions: ['.ts', '...']
         },
         output: {
+            filename: 'web-ui.js',
             path: path.resolve(__dirname, 'lib'),
             library: 'web-ui',
             libraryTarget: 'umd',
         },
         module: {
             rules: [
-                { test: /\.ts$/, use: { loader: 'ts-loader' } },
+                { test: /\.ts$/, use: { loader: 'ts-loader' } }
             ],
         },
     }

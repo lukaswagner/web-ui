@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
-        "declaration": true,
-        "outDir": "./lib",
+        "moduleResolution": "node",
         "noImplicitAny": true,
         "module": "ES2020",
         "target": "ES2020",
@@ -9,12 +8,5 @@
             "DOM",
             "ES2020"
         ],
-        "moduleResolution": "node"
     },
-    "files": [
-        "src/web-ui.ts"
-    ],
-    "include": [
-        "src/**/*.ts"
-    ]
 }
