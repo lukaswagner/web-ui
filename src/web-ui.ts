@@ -1,22 +1,19 @@
-import { v4 as uuid } from 'uuid';
-
-import templates from './templates';
+import { Button, ButtonOptions } from "./elements/Button";
 
 export class UI {
+    protected static _nextId = 0;
+    protected _idPrefix = 'ui';
     protected _container: HTMLElement;
-    protected _inputSlider = templates.InputSlider;
 
     public constructor(container: HTMLElement) {
         this._container = container;
     }
 
-    public inputSlider(name: string) {
-        const id = uuid();
-        const node = this._inputSlider.cloneNode(true) as HTMLDivElement;
-        const label = node.querySelector('label');
-        label.textContent = name;
-        label.htmlFor = id;
-        node.querySelector('input').id = id;
-        this._container.appendChild(node);
+    public button(options: ButtonOptions = {}): Button {
+        return new Button(
+            this._container,
+            this._idPrefix + UI._nextId++,
+            options
+        );
     }
 }

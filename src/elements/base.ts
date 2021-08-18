@@ -1,21 +1,26 @@
+export type BaseOptions = {
+    label?: string;
+}
+
 export abstract class Base {
     protected _id: string;
     protected _container: HTMLDivElement;
     protected _label: HTMLLabelElement;
 
-    public constructor(parent: HTMLElement, id: string) {
+    public constructor(parent: HTMLElement, id: string, options: BaseOptions) {
         this._id = id;
 
         this._container = document.createElement('div');
         this._label = document.createElement('label');
         this._label.htmlFor = this._id;
+        this._label.textContent = options.label ?? '';
         this._container.appendChild(this._label);
 
         parent.appendChild(this._container);
     }
 }
 
-type Handler<T> = (value: T) => void;
+export type Handler<T> = (value: T) => void;
 
 export interface IInput<T> {
     set handler(handler: Handler<T>);
