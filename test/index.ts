@@ -42,6 +42,18 @@ ui1.textInput({
     value: '#ffffff',
     handler: (v) => console.log(v)
 });
+ui1.arrayInput({
+    label: 'vec2 input',
+    length: 2,
+    value: [1, 2],
+    handler: (v) => console.log(v)
+});
+ui1.arrayInput({
+    label: 'vec3 input',
+    length: 3,
+    value: [1, 2, 3],
+    handler: (v) => console.log(v)
+});
 
 const ui2 = new UI(document.getElementById('ui-2'));
 ui2.button({
