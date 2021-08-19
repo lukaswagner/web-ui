@@ -5,7 +5,6 @@
 }
 
 #ui-1 div {
-    width: 100%;
     display: flex;
 }
 
@@ -20,4 +19,5 @@
 #ui-1 input, #ui-1 button {
     box-sizing: border-box;
     width: 25%;
+    margin-left: 5px;
 }

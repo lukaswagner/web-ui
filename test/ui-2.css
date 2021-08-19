@@ -4,15 +4,26 @@
     padding: 5px;
 }
 
-#ui-2 label {
-    display: block;
+#ui-2 div {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #ui-2 div:not(:first-child) {
     padding-top: 5px;
 }
 
+#ui-2 label {
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+#ui-2 :nth-child(2) {
+    margin-left: auto;
+}
+
 #ui-2 input, #ui-2 button {
     box-sizing: border-box;
-    width: 50%;
+    width: 40%;
+    margin-left: 5px;
 }
