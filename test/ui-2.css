@@ -1,0 +1,18 @@
+#ui-2 {
+    outline: 1px solid black;
+    width: 40ch;
+    padding: 5px;
+}
+
+#ui-2 label {
+    display: block;
+}
+
+#ui-2 div:not(:first-child) {
+    padding-top: 5px;
+}
+
+#ui-2 input, #ui-2 button {
+    box-sizing: border-box;
+    width: 50%;
+}

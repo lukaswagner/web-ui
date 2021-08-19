@@ -10,8 +10,21 @@ module.exports = function () {
         devtool: 'source-map',
         module: {
             rules: [
-                { test: /\.pug$/, use: { loader: 'pug-loader' } },
-                { test: /\.ts$/, use: { loader: 'ts-loader' } },
+                {
+                    test: /\.pug$/,
+                    use: { loader: 'pug-loader' }
+                },
+                {
+                    test: /\.ts$/,
+                    use: { loader: 'ts-loader' }
+                },
+                {
+                    test: /\.css$/,
+                    use: [
+                        { loader: 'style-loader' },
+                        { loader: 'css-loader' }
+                    ]
+                },
             ],
         },
         resolve: {

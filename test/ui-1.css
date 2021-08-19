@@ -1,0 +1,23 @@
+#ui-1 {
+    outline: 1px solid black;
+    width: 40ch;
+    padding: 5px;
+}
+
+#ui-1 div {
+    width: 100%;
+    display: flex;
+}
+
+#ui-1 div:not(:first-child) {
+    padding-top: 5px;
+}
+
+#ui-1 label {
+    margin-right: auto;
+}
+
+#ui-1 input, #ui-1 button {
+    box-sizing: border-box;
+    width: 25%;
+}
