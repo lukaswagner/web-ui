@@ -1,4 +1,5 @@
 import { Button, ButtonOptions } from "./elements/Button";
+import { TextInputOptions, TextInput } from "./elements/textInput";
 import { NumberInput, NumberInputOptions } from "./elements/numberInput";
 import { NumberRangeInput, NumberRangeInputOptions } from "./elements/numberRangeInput";
 import { RangeInput, RangeInputOptions } from "./elements/rangeInput";
@@ -40,5 +41,10 @@ export class UI {
     public numberRangeInput(options: NumberRangeInputOptions = {}) {
         return this.create<NumberRangeInput, NumberRangeInputOptions>(
             NumberRangeInput, options);
+    };
+
+    public textInput(options: TextInputOptions = {}) {
+        return this.create<TextInput, TextInputOptions>(
+            TextInput, options);
     };
 }

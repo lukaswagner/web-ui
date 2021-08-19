@@ -31,6 +31,17 @@ ui1.numberRangeInput({
     max: 100,
     step: 1
 });
+ui1.textInput({
+    label: 'Text input',
+    value: 'foo',
+    handler: (v) => console.log(v)
+});
+ui1.textInput({
+    label: 'Color input',
+    type: 'color',
+    value: '#ffffff',
+    handler: (v) => console.log(v)
+});
 
 const ui2 = new UI(document.getElementById('ui-2'));
 ui2.button({
