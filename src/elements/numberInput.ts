@@ -6,7 +6,7 @@ export type NumberInputOptions = BaseOptions & {
 }
 
 export class NumberInput extends ValueInput<number> {
-    protected _input: HTMLButtonElement;
+    protected _input: HTMLInputElement;
 
     public constructor(
         parent: HTMLElement, id: string, options: NumberInputOptions
