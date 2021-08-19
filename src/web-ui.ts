@@ -1,4 +1,5 @@
 import { Button, ButtonOptions } from "./elements/Button";
+import { NumberInput, NumberInputOptions } from "./elements/numberInput";
 
 export class UI {
     protected static _nextId = 0;
@@ -9,11 +10,23 @@ export class UI {
         this._container = container;
     }
 
-    public button(options: ButtonOptions = {}): Button {
-        return new Button(
+    protected create<Type, Options>(
+        type: { new(parent: HTMLElement, id: string, options: {}): Type; },
+        options: Options
+    ): Type {
+        return new type(
             this._container,
             this._idPrefix + UI._nextId++,
             options
         );
     }
+
+    public button(options: ButtonOptions = {}) {
+        return this.create<Button, ButtonOptions>(Button, options);
+    };
+
+    public numberInput(options: NumberInputOptions = {}) {
+        return this.create<NumberInput, NumberInputOptions>(
+            NumberInput, options);
+    };
 }
