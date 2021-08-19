@@ -4,6 +4,7 @@ import { NumberInput, NumberInputOptions } from "./elements/numberInput";
 import { NumberRangeInput, NumberRangeInputOptions } from "./elements/numberRangeInput";
 import { RangeInput, RangeInputOptions } from "./elements/rangeInput";
 import { ArrayInput, ArrayInputOptions } from "./elements/arrayInput";
+import { TextOutputOptions, TextOutput } from "./elements/textOutput";
 
 export class UI {
     protected static _nextId = 0;
@@ -48,6 +49,13 @@ export class UI {
         array: (options: ArrayInputOptions = {}) => {
             return this.create<ArrayInput, ArrayInputOptions>(
                 ArrayInput, options);
+        }
+    }
+
+    public output = {
+        text: (options: TextOutputOptions = {}) => {
+            return this.create<TextOutput, TextOutputOptions>(
+                TextOutput, options);
         }
     }
 }

@@ -28,9 +28,14 @@ ui1.input.numberRange({
     max: 100,
     step: 1
 });
-ui1.input.text({
+const ti = ui1.input.text({
     label: 'Text input',
     value: 'foo',
+    handler: (v) => to.value = v
+});
+const to = ui1.output.text({
+    label: 'Text output',
+    value: ti.value,
     handler: (v) => console.log(v)
 });
 ui1.input.text({
