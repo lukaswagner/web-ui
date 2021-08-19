@@ -25,32 +25,29 @@ export class UI {
         );
     }
 
-    public button(options: ButtonOptions = {}) {
-        return this.create<Button, ButtonOptions>(Button, options);
-    };
-
-    public numberInput(options: NumberInputOptions = {}) {
-        return this.create<NumberInput, NumberInputOptions>(
-            NumberInput, options);
-    };
-
-    public rangeInput(options: RangeInputOptions = {}) {
-        return this.create<RangeInput, RangeInputOptions>(
-            RangeInput, options);
-    };
-
-    public numberRangeInput(options: NumberRangeInputOptions = {}) {
-        return this.create<NumberRangeInput, NumberRangeInputOptions>(
-            NumberRangeInput, options);
-    };
-
-    public textInput(options: TextInputOptions = {}) {
-        return this.create<TextInput, TextInputOptions>(
-            TextInput, options);
-    };
-
-    public arrayInput(options: ArrayInputOptions = {}) {
-        return this.create<ArrayInput, ArrayInputOptions>(
-            ArrayInput, options);
-    };
+    public input = {
+        button: (options: ButtonOptions = {}) => {
+            return this.create<Button, ButtonOptions>(Button, options);
+        },
+        number: (options: NumberInputOptions = {}) => {
+            return this.create<NumberInput, NumberInputOptions>(
+                NumberInput, options);
+        },
+        range: (options: RangeInputOptions = {}) => {
+            return this.create<RangeInput, RangeInputOptions>(
+                RangeInput, options);
+        },
+        numberRange: (options: NumberRangeInputOptions = {}) => {
+            return this.create<NumberRangeInput, NumberRangeInputOptions>(
+                NumberRangeInput, options);
+        },
+        text: (options: TextInputOptions = {}) => {
+            return this.create<TextInput, TextInputOptions>(
+                TextInput, options);
+        },
+        array: (options: ArrayInputOptions = {}) => {
+            return this.create<ArrayInput, ArrayInputOptions>(
+                ArrayInput, options);
+        }
+    }
 }
