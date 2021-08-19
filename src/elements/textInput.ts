@@ -28,7 +28,7 @@ export class TextInput extends ValueInput<string> {
         this._input.value = this._value.toString();
         this._interalHandler = () => {
             this._value = this._input.value;
-            this._handler(this._value);
+            this._handler?.(this._value);
         };
         this._input.onchange = this._interalHandler;
         this._container.appendChild(this._input);

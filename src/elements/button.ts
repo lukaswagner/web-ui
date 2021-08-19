@@ -18,7 +18,7 @@ export class Button extends Input<void> {
         this._button = document.createElement('button');
         this._button.id = this._id;
         this._button.textContent = options.text;
-        this._button.onclick = () => this._handler();
+        this._button.onclick = () => this._handler?.();
         this._container.appendChild(this._button);
     }
 }
