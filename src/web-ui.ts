@@ -1,10 +1,10 @@
-import { Button, ButtonOptions } from "./elements/Button";
-import { TextInputOptions, TextInput } from "./elements/textInput";
-import { NumberInput, NumberInputOptions } from "./elements/numberInput";
-import { NumberRangeInput, NumberRangeInputOptions } from "./elements/numberRangeInput";
-import { RangeInput, RangeInputOptions } from "./elements/rangeInput";
-import { ArrayInput, ArrayInputOptions } from "./elements/arrayInput";
-import { TextOutputOptions, TextOutput } from "./elements/textOutput";
+import { Button, ButtonOptions } from "./elements/input/button";
+import { TextInputOptions, TextInput } from "./elements/input/text";
+import { NumberInput, NumberInputOptions } from "./elements/input/number";
+import { NumberRangeInput, NumberRangeInputOptions } from "./elements/input/numberRange";
+import { RangeInput, RangeInputOptions } from "./elements/input/range";
+import { ArrayInput, ArrayInputOptions } from "./elements/input/array";
+import { TextOutputOptions, TextOutput } from "./elements/output/text";
 
 export class UI {
     protected static _nextId = 0;

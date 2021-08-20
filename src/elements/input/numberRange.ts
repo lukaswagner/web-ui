@@ -1,4 +1,4 @@
-import { RangeInputOptions, RangeInput } from "./rangeInput";
+import { RangeInputOptions, RangeInput } from "./range";
 
 export type NumberRangeInputOptions = RangeInputOptions & {};
 

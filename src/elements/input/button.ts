@@ -1,4 +1,4 @@
-import { BaseOptions, Handler, Input } from "./base";
+import { BaseOptions, Handler, Input } from "../base";
 
 export type ButtonOptions = BaseOptions & {
     text?: string;

@@ -1,4 +1,4 @@
-import { BaseOptions, Handler, Value } from "./base";
+import { BaseOptions, Handler, Value } from "../base";
 
 export type TextOutputOptions = BaseOptions & {
     value?: string;
