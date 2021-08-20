@@ -11,7 +11,7 @@ Helper for quickly adding ui elements.
 - [x] Number (text, slider, text+slider)
 - [x] Number array
 - [x] Select
-- [ ] File
+- [x] File
 
 ### Outputs:
 

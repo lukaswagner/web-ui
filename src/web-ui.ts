@@ -6,6 +6,7 @@ import { RangeInput, RangeInputOptions } from "./elements/input/range";
 import { ArrayInput, ArrayInputOptions } from "./elements/input/array";
 import { TextOutputOptions, TextOutput } from "./elements/output/text";
 import { SelectInput, SelectInputOptions } from "./elements/input/select";
+import { FileInput, FileInputOptions } from "./elements/input/file";
 
 export class UI {
     protected static _nextId = 0;
@@ -54,6 +55,10 @@ export class UI {
         select: (options: SelectInputOptions = {}) => {
             return this.create<SelectInput, SelectInputOptions>(
                 SelectInput, options);
+        },
+        file: (options: FileInputOptions = {}) => {
+            return this.create<FileInput, FileInputOptions>(
+                FileInput, options);
         }
     }
 

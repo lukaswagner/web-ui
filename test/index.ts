@@ -57,10 +57,16 @@ ui1.input.array({
     handler: (v) => console.log(v)
 });
 ui1.input.select({
-    label: 'selection input',
+    label: 'Selection input',
     optionTexts: ['A', 'B'],
     handler: (v) => console.log(v)
-})
+});
+ui1.input.file({
+    label: 'File input',
+    text: 'Open',
+    multiple: true,
+    handler: (v) => console.log(v)
+});
 
 const ui2 = new UI(document.getElementById('ui-2'));
 ui2.input.button({
