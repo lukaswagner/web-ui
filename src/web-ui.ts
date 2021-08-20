@@ -7,6 +7,7 @@ import { ArrayInput, ArrayInputOptions } from "./elements/input/array";
 import { TextOutputOptions, TextOutput } from "./elements/output/text";
 import { SelectInput, SelectInputOptions } from "./elements/input/select";
 import { FileInput, FileInputOptions } from "./elements/input/file";
+import { ProgressOutputOptions, ProgressOutput } from "./elements/output/progress";
 
 export class UI {
     protected static _nextId = 0;
@@ -66,6 +67,10 @@ export class UI {
         text: (options: TextOutputOptions = {}) => {
             return this.create<TextOutput, TextOutputOptions>(
                 TextOutput, options);
+        },
+        progress: (options: ProgressOutputOptions = {}) => {
+            return this.create<ProgressOutput, ProgressOutputOptions>(
+                ProgressOutput, options);
         }
     }
 }

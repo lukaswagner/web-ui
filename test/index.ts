@@ -15,9 +15,17 @@ ui1.input.number({
 });
 ui1.input.range({
     label: 'Range input',
-    value: 10,
-    handler: (v) => console.log(v),
+    value: 0,
+    min: 0,
+    max: 1,
+    handler: (v) => {
+        prog.value = v;
+        console.log(v);
+    },
     triggerHandlerOnMove: true
+});
+const prog = ui1.output.progress({
+    label: 'Progress output'
 });
 ui1.input.numberRange({
     label: 'Number/range input',
@@ -36,7 +44,6 @@ const ti = ui1.input.text({
 const to = ui1.output.text({
     label: 'Text output',
     value: ti.value,
-    handler: (v) => console.log(v)
 });
 ui1.input.text({
     label: 'Color input',

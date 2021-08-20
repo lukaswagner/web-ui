@@ -2,7 +2,6 @@ import { BaseOptions, Handler, Value } from "../base";
 
 export type TextOutputOptions = BaseOptions & {
     value?: string;
-    handler?: Handler<number>;
 }
 
 export class TextOutput extends Value<string> {

@@ -16,7 +16,11 @@
     margin-right: auto;
 }
 
-#ui-1 input, #ui-1 button, #ui-1 select {
+#ui-1 progress {
+    margin: 2px;
+}
+
+#ui-1 input, #ui-1 button, #ui-1 select, #ui-1 progress {
     box-sizing: border-box;
     width: 20%;
     margin-left: 5px;
