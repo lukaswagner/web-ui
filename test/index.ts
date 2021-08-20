@@ -56,6 +56,11 @@ ui1.input.array({
     value: [1, 2, 3],
     handler: (v) => console.log(v)
 });
+ui1.input.select({
+    label: 'selection input',
+    optionTexts: ['A', 'B'],
+    handler: (v) => console.log(v)
+})
 
 const ui2 = new UI(document.getElementById('ui-2'));
 ui2.input.button({

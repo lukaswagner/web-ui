@@ -51,9 +51,9 @@ export class Value<T> extends Base implements IValue<T> {
     }
 }
 
-export class ValueInput<T> extends Base implements IValue<T>, IInput<T> {
+export class ValueInput<T, U = T> extends Base implements IValue<T>, IInput<U> {
     protected _value: T;
-    protected _handler: Handler<T>;
+    protected _handler: Handler<U>;
 
     public set value(value: T) {
         this._value = value;
@@ -63,7 +63,7 @@ export class ValueInput<T> extends Base implements IValue<T>, IInput<T> {
         return this._value;
     }
 
-    public set handler(handler: Handler<T>) {
+    public set handler(handler: Handler<U>) {
         this._handler = handler;
     }
 }

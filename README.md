@@ -10,7 +10,7 @@ Helper for quickly adding ui elements.
 - [x] Text (plain text, color, email, password, url)
 - [x] Number (text, slider, text+slider)
 - [x] Number array
-- [ ] Select
+- [x] Select
 - [ ] File
 
 ### Outputs:
