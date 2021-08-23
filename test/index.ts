@@ -6,7 +6,9 @@ import { UI } from '..';
 
 const ui1 = new UI(document.getElementById('ui-1'));
 ui1.input.button({
-    label: 'Button', text: 'Button', handler: () => console.log('hi')
+    label: 'Button',
+    text: 'Button',
+    handler: () => console.log('hi')
 });
 ui1.input.number({
     label: 'Number input',
