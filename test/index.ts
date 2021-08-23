@@ -78,6 +78,15 @@ ui1.input.checkbox({
     label: 'Checkbox input',
     handler: (v) => console.log(v)
 });
+const body = [...new Array<number>(5)]
+    .map((_, i) => [i, i * i, String.fromCharCode(65 + i)]);
+const table = ui1.output.table({
+    label: 'Table output',
+    head: ['index', 'square', 'char'],
+    value: body
+});
+table.setRow(1, ['foo']);
+table.setCell(4, 2, 'bar');
 
 const ui2 = new UI(document.getElementById('ui-2'));
 ui2.input.button({

@@ -17,5 +17,5 @@ Helper for quickly adding ui elements.
 ### Outputs:
 
 - [x] Text
-- [ ] Progress
-- [ ] Table
+- [x] Progress
+- [x] Table
