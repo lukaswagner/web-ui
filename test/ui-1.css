@@ -25,3 +25,7 @@
     width: 20%;
     margin-left: 5px;
 }
+
+#ui-1 input[type=checkbox] {
+    width: unset;
+}

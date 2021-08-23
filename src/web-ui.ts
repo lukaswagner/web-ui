@@ -8,6 +8,7 @@ import { TextOutputOptions, TextOutput } from "./elements/output/text";
 import { SelectInput, SelectInputOptions } from "./elements/input/select";
 import { FileInput, FileInputOptions } from "./elements/input/file";
 import { ProgressOutputOptions, ProgressOutput } from "./elements/output/progress";
+import { CheckboxInput, CheckboxInputOptions } from "./elements/input/checkbox";
 
 export class UI {
     protected static _nextId = 0;
@@ -60,6 +61,10 @@ export class UI {
         file: (options: FileInputOptions = {}) => {
             return this.create<FileInput, FileInputOptions>(
                 FileInput, options);
+        },
+        checkbox: (options: CheckboxInputOptions = {}) => {
+            return this.create<CheckboxInput, CheckboxInputOptions>(
+                CheckboxInput, options);
         }
     }
 

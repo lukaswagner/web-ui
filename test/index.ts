@@ -74,6 +74,10 @@ ui1.input.file({
     multiple: true,
     handler: (v) => console.log(v)
 });
+ui1.input.checkbox({
+    label: 'Checkbox input',
+    handler: (v) => console.log(v)
+});
 
 const ui2 = new UI(document.getElementById('ui-2'));
 ui2.input.button({

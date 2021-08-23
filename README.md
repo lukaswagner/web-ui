@@ -12,6 +12,7 @@ Helper for quickly adding ui elements.
 - [x] Number array
 - [x] Select
 - [x] File
+- [x] Checkbox
 
 ### Outputs:
 
