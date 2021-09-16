@@ -8,7 +8,9 @@
         "build": "webpack build",
         "watch": "webpack build -w",
         "test-webpack": "cd test && webpack serve",
-        "dev-watch": "concurrently npm:watch npm:test-webpack"
+        "dev-watch": "concurrently npm:watch npm:test-webpack",
+        "lint": "eslint .",
+        "lint-fix": "eslint . --fix"
     },
     "repository": {
         "type": "git",
@@ -17,8 +19,11 @@
     "author": "Lukas Wagner",
     "license": "MIT",
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.31.1",
+        "@typescript-eslint/parser": "^4.31.1",
         "concurrently": "^6.2.1",
         "css-loader": "^6.2.0",
+        "eslint": "^7.32.0",
         "html-webpack-plugin": "^5.3.2",
         "pug": "^3.0.2",
         "pug-loader": "^2.4.0",
