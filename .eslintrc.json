@@ -51,7 +51,8 @@
             "never"
         ],
         "prefer-const": "warn",
-        "sort-imports": "warn"
+        "sort-imports": "warn",
+        "keyword-spacing": "warn"
     },
     "overrides": [
         {
