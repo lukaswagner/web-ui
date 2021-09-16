@@ -1,4 +1,4 @@
-import { BaseOptions, Handler, ValueInput } from "../base";
+import { BaseOptions, Handler, ValueInput } from '../base';
 
 export type ArrayInputOptions = BaseOptions & {
     length?: number,
@@ -39,7 +39,7 @@ export class ArrayInput extends ValueInput<number[]> {
         value?.forEach((v, i) => this._value[i] = v);
         value.forEach((v, i) => {
             this._inputs[i].value = v.toString();
-        })
+        });
     }
 
     public get value(): number[] {

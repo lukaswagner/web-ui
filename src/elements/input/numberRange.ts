@@ -1,4 +1,4 @@
-import { RangeInputOptions, RangeInput } from "./range";
+import { RangeInput, RangeInputOptions } from './range';
 
 export type NumberRangeInputOptions = RangeInputOptions & {};
 
@@ -19,12 +19,12 @@ export class NumberRangeInput extends RangeInput {
         this._number.onchange = () => {
             this._input.value = this._number.value;
             this._interalHandler();
-        }
+        };
 
         const inputHandler = () => {
             this._number.value = this._input.value;
             this._interalHandler();
-        }
+        };
         if (options.triggerHandlerOnMove) {
             this._input.oninput = inputHandler;
         } else {

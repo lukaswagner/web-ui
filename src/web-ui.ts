@@ -1,15 +1,15 @@
-import { Button, ButtonOptions } from "./elements/input/button";
-import { TextInputOptions, TextInput } from "./elements/input/text";
-import { NumberInput, NumberInputOptions } from "./elements/input/number";
-import { NumberRangeInput, NumberRangeInputOptions } from "./elements/input/numberRange";
-import { RangeInput, RangeInputOptions } from "./elements/input/range";
-import { ArrayInput, ArrayInputOptions } from "./elements/input/array";
-import { TextOutputOptions, TextOutput } from "./elements/output/text";
-import { SelectInput, SelectInputOptions } from "./elements/input/select";
-import { FileInput, FileInputOptions } from "./elements/input/file";
-import { ProgressOutputOptions, ProgressOutput } from "./elements/output/progress";
-import { CheckboxInput, CheckboxInputOptions } from "./elements/input/checkbox";
-import { TableOutput, TableOutputOptions } from "./elements/output/table";
+import { Button, ButtonOptions } from './elements/input/button';
+import { TextInput, TextInputOptions } from './elements/input/text';
+import { NumberInput, NumberInputOptions } from './elements/input/number';
+import { NumberRangeInput, NumberRangeInputOptions } from './elements/input/numberRange';
+import { RangeInput, RangeInputOptions } from './elements/input/range';
+import { ArrayInput, ArrayInputOptions } from './elements/input/array';
+import { TextOutput, TextOutputOptions } from './elements/output/text';
+import { SelectInput, SelectInputOptions } from './elements/input/select';
+import { FileInput, FileInputOptions } from './elements/input/file';
+import { ProgressOutput, ProgressOutputOptions } from './elements/output/progress';
+import { CheckboxInput, CheckboxInputOptions } from './elements/input/checkbox';
+import { TableOutput, TableOutputOptions } from './elements/output/table';
 
 export class UI {
     protected static _nextId = 0;

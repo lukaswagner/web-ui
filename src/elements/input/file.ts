@@ -1,4 +1,4 @@
-import { BaseOptions, Handler, Input, ValueInput } from "../base";
+import { BaseOptions, Handler, Input, ValueInput } from '../base';
 
 export type FileInputOptions = BaseOptions & {
     text?: string;
@@ -23,7 +23,7 @@ export class FileInput extends Input<FileList> {
         if(options.multiple) this._input.multiple = true;
         this._interalHandler = () => {
             const files = this._input.files;
-            console.log(files.length)
+            console.log(files.length);
             const multiple = files.length > 1 ? ` + ${files.length - 1}` : '';
             this._button.textContent =
                 (files.item(0)?.name ?? 'None') + multiple;

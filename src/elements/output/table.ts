@@ -1,4 +1,4 @@
-import { BaseOptions, Handler, Value } from "../base";
+import { BaseOptions, Handler, Value } from '../base';
 
 type Row = any[];
 
@@ -50,7 +50,7 @@ export class TableOutput extends Value<Row[]> {
     }
 
     public setCell(rowIndex: number, cellIndex: number, value: any): void {
-        let row = this._value[rowIndex] ?? [];
+        const row = this._value[rowIndex] ?? [];
         row[cellIndex] = value;
         this._value[rowIndex] = row;
 
@@ -77,7 +77,7 @@ export class TableOutput extends Value<Row[]> {
     protected buildTable(): void {
         this._value.forEach((r) => {
             this._output.appendChild(this.buildRow(r));
-        })
+        });
     }
 
     protected buildRow(r: Row): HTMLTableRowElement {

@@ -1,4 +1,4 @@
-import { NumberInput, NumberInputOptions } from "./number";
+import { NumberInput, NumberInputOptions } from './number';
 
 export type RangeInputOptions = NumberInputOptions & {
     min?: number,

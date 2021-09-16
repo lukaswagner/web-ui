@@ -1,4 +1,4 @@
-import { BaseOptions, Handler, ValueInput } from "../base";
+import { BaseOptions, Handler, ValueInput } from '../base';
 
 type Selection = {
     index: number,
