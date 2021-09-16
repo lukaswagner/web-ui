@@ -1,6 +1,6 @@
 import { RangeInput, RangeInputOptions } from './range';
 
-export type NumberRangeInputOptions = RangeInputOptions & {};
+export type NumberRangeInputOptions = RangeInputOptions;
 
 export class NumberRangeInput extends RangeInput {
     protected _number: HTMLInputElement;
@@ -21,7 +21,7 @@ export class NumberRangeInput extends RangeInput {
             this._interalHandler();
         };
 
-        const inputHandler = () => {
+        const inputHandler = (): void => {
             this._number.value = this._input.value;
             this._interalHandler();
         };

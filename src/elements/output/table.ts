@@ -1,6 +1,10 @@
-import { BaseOptions, Handler, Value } from '../base';
+import { BaseOptions, Value } from '../base';
 
-type Row = any[];
+interface Printable {
+    toString(): string
+}
+
+type Row = Printable[];
 
 export type TableOutputOptions = BaseOptions & {
     head?: Row;
@@ -49,7 +53,9 @@ export class TableOutput extends Value<Row[]> {
         }
     }
 
-    public setCell(rowIndex: number, cellIndex: number, value: any): void {
+    public setCell(
+        rowIndex: number, cellIndex: number, value: Printable
+    ): void {
         const row = this._value[rowIndex] ?? [];
         row[cellIndex] = value;
         this._value[rowIndex] = row;
@@ -88,7 +94,7 @@ export class TableOutput extends Value<Row[]> {
         return row;
     }
 
-    protected buildCell(c: any): HTMLTableCellElement {
+    protected buildCell(c: Printable): HTMLTableCellElement {
         const cell = document.createElement('td');
         cell.textContent = c.toString();
         return cell;

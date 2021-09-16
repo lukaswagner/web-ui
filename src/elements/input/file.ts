@@ -1,4 +1,4 @@
-import { BaseOptions, Handler, Input, ValueInput } from '../base';
+import { BaseOptions, Handler, Input } from '../base';
 
 export type FileInputOptions = BaseOptions & {
     text?: string;
@@ -20,7 +20,7 @@ export class FileInput extends Input<FileList> {
 
         this._input = document.createElement('input');
         this._input.type = 'file';
-        if(options.multiple) this._input.multiple = true;
+        if (options.multiple) this._input.multiple = true;
         this._interalHandler = () => {
             const files = this._input.files;
             console.log(files.length);
@@ -33,7 +33,7 @@ export class FileInput extends Input<FileList> {
 
         this._button = document.createElement('button');
         this._button.id = this._id;
-        if(options.text) this._button.textContent = options.text;
+        if (options.text) this._button.textContent = options.text;
         this._button.onclick = () => this._input.click();
         this._container.appendChild(this._button);
     }

@@ -47,7 +47,7 @@ export class SelectInput extends ValueInput<string, Selection> {
             options.optionValues?.length ?? 0,
             options.optionTexts?.length ?? 0);
 
-        for(let i = 0; i < numOptions; i++) {
+        for (let i = 0; i < numOptions; i++) {
             const elem = document.createElement('option');
             elem.value =
                 options.optionValues?.[i] ??
@@ -60,8 +60,8 @@ export class SelectInput extends ValueInput<string, Selection> {
             this._input.appendChild(elem);
         }
 
-        if(options.index) this._input.selectedIndex = options.index;
-        if(options.value) this._input.value = options.value;
+        if (options.index) this._input.selectedIndex = options.index;
+        if (options.value) this._input.value = options.value;
 
         this._value = this._input.value;
         this._index = this._input.selectedIndex;

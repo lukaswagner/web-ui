@@ -1,15 +1,18 @@
-import { Button, ButtonOptions } from './elements/input/button';
-import { TextInput, TextInputOptions } from './elements/input/text';
-import { NumberInput, NumberInputOptions } from './elements/input/number';
-import { NumberRangeInput, NumberRangeInputOptions } from './elements/input/numberRange';
-import { RangeInput, RangeInputOptions } from './elements/input/range';
 import { ArrayInput, ArrayInputOptions } from './elements/input/array';
-import { TextOutput, TextOutputOptions } from './elements/output/text';
-import { SelectInput, SelectInputOptions } from './elements/input/select';
-import { FileInput, FileInputOptions } from './elements/input/file';
-import { ProgressOutput, ProgressOutputOptions } from './elements/output/progress';
+import { Button, ButtonOptions } from './elements/input/button';
 import { CheckboxInput, CheckboxInputOptions } from './elements/input/checkbox';
+import { FileInput, FileInputOptions } from './elements/input/file';
+import { NumberInput, NumberInputOptions } from './elements/input/number';
+import { NumberRangeInput, NumberRangeInputOptions }
+    from './elements/input/numberRange';
+import { ProgressOutput, ProgressOutputOptions }
+    from './elements/output/progress';
+import { RangeInput, RangeInputOptions } from './elements/input/range';
+import { SelectInput, SelectInputOptions } from './elements/input/select';
 import { TableOutput, TableOutputOptions } from './elements/output/table';
+import { TextInput, TextInputOptions } from './elements/input/text';
+import { TextOutput, TextOutputOptions } from './elements/output/text';
+import { BaseOptions } from './elements/base';
 
 export class UI {
     protected static _nextId = 0;
@@ -21,7 +24,9 @@ export class UI {
     }
 
     protected create<Type, Options>(
-        type: { new(parent: HTMLElement, id: string, options: {}): Type; },
+        type: {
+            new(parent: HTMLElement, id: string, options: BaseOptions): Type;
+        },
         options: Options
     ): Type {
         return new type(
@@ -32,53 +37,55 @@ export class UI {
     }
 
     public input = {
-        button: (options: ButtonOptions = {}) => {
+        button: (options: ButtonOptions = {}): Button => {
             return this.create<Button, ButtonOptions>(Button, options);
         },
-        number: (options: NumberInputOptions = {}) => {
+        number: (options: NumberInputOptions = {}): NumberInput => {
             return this.create<NumberInput, NumberInputOptions>(
                 NumberInput, options);
         },
-        range: (options: RangeInputOptions = {}) => {
+        range: (options: RangeInputOptions = {}): RangeInput => {
             return this.create<RangeInput, RangeInputOptions>(
                 RangeInput, options);
         },
-        numberRange: (options: NumberRangeInputOptions = {}) => {
+        numberRange: (
+            options: NumberRangeInputOptions = {}
+        ): NumberRangeInput => {
             return this.create<NumberRangeInput, NumberRangeInputOptions>(
                 NumberRangeInput, options);
         },
-        text: (options: TextInputOptions = {}) => {
+        text: (options: TextInputOptions = {}): TextInput => {
             return this.create<TextInput, TextInputOptions>(
                 TextInput, options);
         },
-        array: (options: ArrayInputOptions = {}) => {
+        array: (options: ArrayInputOptions = {}): ArrayInput => {
             return this.create<ArrayInput, ArrayInputOptions>(
                 ArrayInput, options);
         },
-        select: (options: SelectInputOptions = {}) => {
+        select: (options: SelectInputOptions = {}): SelectInput => {
             return this.create<SelectInput, SelectInputOptions>(
                 SelectInput, options);
         },
-        file: (options: FileInputOptions = {}) => {
+        file: (options: FileInputOptions = {}): FileInput => {
             return this.create<FileInput, FileInputOptions>(
                 FileInput, options);
         },
-        checkbox: (options: CheckboxInputOptions = {}) => {
+        checkbox: (options: CheckboxInputOptions = {}): CheckboxInput => {
             return this.create<CheckboxInput, CheckboxInputOptions>(
                 CheckboxInput, options);
         }
     }
 
     public output = {
-        text: (options: TextOutputOptions = {}) => {
+        text: (options: TextOutputOptions = {}): TextOutput => {
             return this.create<TextOutput, TextOutputOptions>(
                 TextOutput, options);
         },
-        progress: (options: ProgressOutputOptions = {}) => {
+        progress: (options: ProgressOutputOptions = {}): ProgressOutput => {
             return this.create<ProgressOutput, ProgressOutputOptions>(
                 ProgressOutput, options);
         },
-        table: (options: TableOutputOptions = {}) => {
+        table: (options: TableOutputOptions = {}): TableOutput => {
             return this.create<TableOutput, TableOutputOptions>(
                 TableOutput, options);
         }
