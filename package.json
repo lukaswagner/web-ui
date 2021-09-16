@@ -1,9 +1,23 @@
 {
-    "name": "web-ui",
+    "name": "@lukaswagner/web-ui",
     "version": "1.0.0",
     "description": "Helper for quickly adding ui elements.",
+    "homepage": "https://github.com/lukaswagner/web-ui",
+    "license": "MIT",
+    "author": {
+        "name": "Lukas Wagner",
+        "email": "lukas@lwgnr.dev",
+        "url": "https://lwgnr.dev/"
+    },
+    "files": [
+        "lib/*"
+    ],
     "main": "lib/web-ui.js",
     "types": "lib/web-ui.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lukaswagner/web-ui.git"
+    },
     "scripts": {
         "build": "webpack build",
         "watch": "webpack build -w",
@@ -12,12 +26,6 @@
         "lint": "eslint .",
         "lint-fix": "eslint . --fix"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/lukaswagner/web-ui.git"
-    },
-    "author": "Lukas Wagner",
-    "license": "MIT",
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^4.31.1",
         "@typescript-eslint/parser": "^4.31.1",
