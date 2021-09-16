@@ -18,6 +18,10 @@
     "plugins": [
         "@typescript-eslint"
     ],
+    "ignorePatterns": [
+        "lib/*.*",
+        "lib/**/*.*"
+    ],
     "rules": {
         "default-case": "warn",
         "default-case-last": "warn",
