@@ -18,21 +18,29 @@ export class UI {
     protected static _nextId = 0;
     protected _idPrefix = 'ui';
     protected _container: HTMLElement;
+    protected _handleOnInit: boolean;
 
-    public constructor(container: HTMLElement) {
+    public constructor(container: HTMLElement, handleOnInit: boolean = false) {
         this._container = container;
+        this._handleOnInit = handleOnInit;
     }
 
     protected create<Type, Options>(
         type: {
-            new(parent: HTMLElement, id: string, options: BaseOptions): Type;
+            new(
+                parent: HTMLElement,
+                id: string,
+                options: BaseOptions,
+                defaultHandleOnInit: boolean
+            ): Type;
         },
         options: Options
     ): Type {
         return new type(
             this._container,
             this._idPrefix + UI._nextId++,
-            options
+            options,
+            this._handleOnInit
         );
     }
 

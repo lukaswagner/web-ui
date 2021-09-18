@@ -9,7 +9,7 @@ export type FileInputOptions = BaseOptions & {
 export class FileInput extends Input<FileList> {
     protected _input: HTMLInputElement;
     protected _button: HTMLButtonElement;
-    protected _interalHandler: () => void;
+    protected _internalHandler: () => void;
 
     public constructor(
         parent: HTMLElement, id: string, options: FileInputOptions
@@ -21,20 +21,22 @@ export class FileInput extends Input<FileList> {
         this._input = document.createElement('input');
         this._input.type = 'file';
         if (options.multiple) this._input.multiple = true;
-        this._interalHandler = () => {
+        this._internalHandler = () => {
             const files = this._input.files;
-            console.log(files.length);
             const multiple = files.length > 1 ? ` + ${files.length - 1}` : '';
             this._button.textContent =
                 (files.item(0)?.name ?? 'None') + multiple;
             this._handler?.(files);
         };
-        this._input.onchange = this._interalHandler;
+        this._input.onchange = this._internalHandler;
 
         this._button = document.createElement('button');
         this._button.id = this._id;
         if (options.text) this._button.textContent = options.text;
         this._button.onclick = () => this._input.click();
         this._container.appendChild(this._button);
+
+        // file input does not use defaultHandleOnInit
+        if(options.handleOnInit) this._internalHandler?.();
     }
 }

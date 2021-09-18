@@ -32,11 +32,14 @@ export type SelectInputOptions = BaseOptions & {
 
 export class SelectInput extends ValueInput<string, Selection> {
     protected _input: HTMLSelectElement;
-    protected _interalHandler: () => void;
+    protected _internalHandler: () => void;
     protected _index: number;
 
     public constructor(
-        parent: HTMLElement, id: string, options: SelectInputOptions
+        parent: HTMLElement,
+        id: string,
+        options: SelectInputOptions,
+        defaultHandleOnInit: boolean
     ) {
         super(parent, id, options);
 
@@ -67,14 +70,16 @@ export class SelectInput extends ValueInput<string, Selection> {
         this._index = this._input.selectedIndex;
 
         this._handler = options.handler;
-        this._interalHandler = () => {
+        this._internalHandler = () => {
             this._value = this._input.value;
             this._index = this._input.selectedIndex;
             this._handler?.({ value: this._value, index: this._index });
         };
-        this._input.onchange = this._interalHandler;
+        this._input.onchange = this._internalHandler;
 
         this._container.appendChild(this._input);
+
+        if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
     }
 
     public set value(value: string) {

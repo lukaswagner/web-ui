@@ -20,5 +20,8 @@ export class Button extends Input<void> {
         this._button.textContent = options.text;
         this._button.onclick = () => this._handler?.();
         this._container.appendChild(this._button);
+
+        // button does not use defaultHandleOnInit
+        if(options.handleOnInit) this._handler?.();
     }
 }

@@ -7,10 +7,13 @@ export type NumberInputOptions = BaseOptions & {
 
 export class NumberInput extends ValueInput<number> {
     protected _input: HTMLInputElement;
-    protected _interalHandler: () => void;
+    protected _internalHandler: () => void;
 
     public constructor(
-        parent: HTMLElement, id: string, options: NumberInputOptions
+        parent: HTMLElement,
+        id: string,
+        options: NumberInputOptions,
+        defaultHandleOnInit: boolean
     ) {
         super(parent, id, options);
 
@@ -21,12 +24,14 @@ export class NumberInput extends ValueInput<number> {
         this._input.id = this._id;
         this._input.type = 'number';
         this._input.value = this._value.toString();
-        this._interalHandler = () => {
+        this._internalHandler = () => {
             this._value = Number(this._input.value);
             this._handler?.(this._value);
         };
-        this._input.onchange = this._interalHandler;
+        this._input.onchange = this._internalHandler;
         this._container.appendChild(this._input);
+
+        if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
     }
 
     public set value(value: number) {
