@@ -20,7 +20,7 @@ export class CheckboxInput extends ValueInput<boolean> {
         this._input = document.createElement('input');
         this._input.id = this._id;
         this._input.type = 'checkbox';
-        this._input.value = this._value.toString();
+        this._input.checked = this._value;
         this._interalHandler = () => {
             this._value = this._input.checked;
             this._handler?.(this._value);
@@ -31,7 +31,7 @@ export class CheckboxInput extends ValueInput<boolean> {
 
     public set value(value: boolean) {
         super.value = value;
-        this._input.value = this._value.toString();
+        this._input.checked = this._value;
     }
 
     public get value(): boolean {
