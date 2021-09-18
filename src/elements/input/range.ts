@@ -13,9 +13,12 @@ export class RangeInput extends NumberInput {
     protected _step: number;
 
     public constructor(
-        parent: HTMLElement, id: string, options: RangeInputOptions
+        parent: HTMLElement,
+        id: string,
+        options: RangeInputOptions,
+        defaultHandleOnInit: boolean
     ) {
-        super(parent, id, options);
+        super(parent, id, options, defaultHandleOnInit);
 
         this._input.type = 'range';
 
@@ -25,7 +28,7 @@ export class RangeInput extends NumberInput {
         this.step = options.step ?? (this._max - this._min) / 20;
 
         if (options.triggerHandlerOnMove) {
-            this._input.oninput = this._interalHandler;
+            this._input.oninput = this._internalHandler;
             this._input.onchange = undefined;
         }
     }

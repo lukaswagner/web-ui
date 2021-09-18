@@ -6,9 +6,12 @@ export class NumberRangeInput extends RangeInput {
     protected _number: HTMLInputElement;
 
     public constructor(
-        parent: HTMLElement, id: string, options: NumberRangeInputOptions
+        parent: HTMLElement,
+        id: string,
+        options: NumberRangeInputOptions,
+        defaultHandleOnInit: boolean
     ) {
-        super(parent, id, options);
+        super(parent, id, options, defaultHandleOnInit);
 
         this._number = document.createElement('input');
         this._number.id = this._id;
@@ -18,12 +21,12 @@ export class NumberRangeInput extends RangeInput {
 
         this._number.onchange = () => {
             this._input.value = this._number.value;
-            this._interalHandler();
+            this._internalHandler();
         };
 
         const inputHandler = (): void => {
             this._number.value = this._input.value;
-            this._interalHandler();
+            this._internalHandler();
         };
         if (options.triggerHandlerOnMove) {
             this._input.oninput = inputHandler;

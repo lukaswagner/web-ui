@@ -8,10 +8,13 @@ export type ArrayInputOptions = BaseOptions & {
 
 export class ArrayInput extends ValueInput<number[]> {
     protected _inputs: HTMLInputElement[];
-    protected _interalHandler: () => void;
+    protected _internalHandler: () => void;
 
     public constructor(
-        parent: HTMLElement, id: string, options: ArrayInputOptions
+        parent: HTMLElement,
+        id: string,
+        options: ArrayInputOptions,
+        defaultHandleOnInit: boolean
     ) {
         super(parent, id, options);
 
@@ -26,13 +29,15 @@ export class ArrayInput extends ValueInput<number[]> {
             if (i === 0) input.id = this._id;
             input.type = 'number';
             input.value = this._value[i].toString();
-            this._interalHandler = () => {
+            this._internalHandler = () => {
                 this._value[i] = Number(input.value);
                 this._handler(this._value);
             };
-            input.onchange = this._interalHandler;
+            input.onchange = this._internalHandler;
             this._container.appendChild(input);
         }
+
+        if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
     }
 
     public set value(value: number[]) {

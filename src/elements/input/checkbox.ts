@@ -7,10 +7,13 @@ export type CheckboxInputOptions = BaseOptions & {
 
 export class CheckboxInput extends ValueInput<boolean> {
     protected _input: HTMLInputElement;
-    protected _interalHandler: () => void;
+    protected _internalHandler: () => void;
 
     public constructor(
-        parent: HTMLElement, id: string, options: CheckboxInputOptions
+        parent: HTMLElement,
+        id: string,
+        options: CheckboxInputOptions,
+        defaultHandleOnInit: boolean
     ) {
         super(parent, id, options);
 
@@ -21,12 +24,14 @@ export class CheckboxInput extends ValueInput<boolean> {
         this._input.id = this._id;
         this._input.type = 'checkbox';
         this._input.checked = this._value;
-        this._interalHandler = () => {
+        this._internalHandler = () => {
             this._value = this._input.checked;
             this._handler?.(this._value);
         };
-        this._input.onchange = this._interalHandler;
+        this._input.onchange = this._internalHandler;
         this._container.appendChild(this._input);
+
+        if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
     }
 
     public set value(value: boolean) {

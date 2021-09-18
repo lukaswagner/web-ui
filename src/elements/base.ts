@@ -1,5 +1,6 @@
 export type BaseOptions = {
     label?: string;
+    handleOnInit?: boolean;
 }
 
 export abstract class Base {
