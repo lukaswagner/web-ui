@@ -13,6 +13,7 @@ export class TextOutput extends Value<string> {
         super(parent, id, options);
 
         this._value = options.value ?? '';
+        this._default = this._value;
 
         this._output = document.createElement('span');
         this._output.id = this._id;

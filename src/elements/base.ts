@@ -19,6 +19,8 @@ export abstract class Base {
 
         parent.appendChild(this._container);
     }
+
+    public abstract reset(invokeHandler?: boolean): void;
 }
 
 export type Handler<T> = (value: T) => void;
@@ -32,16 +34,20 @@ export interface IValue<T> {
     get value(): T;
 }
 
-export class Input<T> extends Base implements IInput<T> {
+export abstract class Input<T> extends Base implements IInput<T> {
     protected _handler: Handler<T>;
+    protected _internalHandler: () => void;
 
     public set handler(handler: Handler<T>) {
         this._handler = handler;
     }
+
+    public abstract reset(invokeHandler?: boolean): void;
 }
 
 export class Value<T> extends Base implements IValue<T> {
     protected _value: T;
+    protected _default: T;
 
     public set value(value: T) {
         this._value = value;
@@ -50,11 +56,18 @@ export class Value<T> extends Base implements IValue<T> {
     public get value(): T {
         return this._value;
     }
+
+    public reset(): void {
+        this.value = this._default;
+    }
 }
 
-export class ValueInput<T, U = T> extends Base implements IValue<T>, IInput<U> {
+export class ValueInput<T, U = T>
+    extends Base implements IValue<T>, IInput<U> {
     protected _value: T;
+    protected _default: T;
     protected _handler: Handler<U>;
+    protected _internalHandler: () => void;
 
     public set value(value: T) {
         this._value = value;
@@ -66,5 +79,10 @@ export class ValueInput<T, U = T> extends Base implements IValue<T>, IInput<U> {
 
     public set handler(handler: Handler<U>) {
         this._handler = handler;
+    }
+
+    public reset(invokeHandler?: boolean): void {
+        this.value = this._default;
+        if(invokeHandler) this._internalHandler?.();
     }
 }

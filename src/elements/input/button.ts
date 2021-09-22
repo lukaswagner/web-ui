@@ -24,4 +24,6 @@ export class Button extends Input<void> {
         // button does not use defaultHandleOnInit
         if(options.handleOnInit) this._handler?.();
     }
+
+    public reset(): void { };
 }

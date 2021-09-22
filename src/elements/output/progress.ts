@@ -13,6 +13,7 @@ export class ProgressOutput extends Value<number> {
         super(parent, id, options);
 
         this._value = options.value ?? 0;
+        this._default = this._value;
 
         this._output = document.createElement('progress');
         this._output.id = this._id;

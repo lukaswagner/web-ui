@@ -68,6 +68,7 @@ export class SelectInput extends ValueInput<string, Selection> {
 
         this._value = this._input.value;
         this._index = this._input.selectedIndex;
+        this._default = this._value;
 
         this._handler = options.handler;
         this._internalHandler = () => {

@@ -8,7 +8,6 @@ export type ArrayInputOptions = BaseOptions & {
 
 export class ArrayInput extends ValueInput<number[]> {
     protected _inputs: HTMLInputElement[] = [];
-    protected _internalHandler: () => void;
 
     public constructor(
         parent: HTMLElement,
@@ -22,6 +21,7 @@ export class ArrayInput extends ValueInput<number[]> {
 
         this._value = new Array(length).fill(0);
         options.value?.forEach((v, i) => this._value[i] = v);
+        this._default = this._value.slice();
         this._handler = options.handler;
 
         for (let i = 0; i < length; i++) {

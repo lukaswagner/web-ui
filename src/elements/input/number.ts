@@ -7,7 +7,6 @@ export type NumberInputOptions = BaseOptions & {
 
 export class NumberInput extends ValueInput<number> {
     protected _input: HTMLInputElement;
-    protected _internalHandler: () => void;
 
     public constructor(
         parent: HTMLElement,
@@ -18,6 +17,7 @@ export class NumberInput extends ValueInput<number> {
         super(parent, id, options);
 
         this._value = options.value ?? 0;
+        this._default = this._value;
         this._handler = options.handler;
 
         this._input = document.createElement('input');

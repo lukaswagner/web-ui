@@ -36,4 +36,9 @@ export class NumberRangeInput extends RangeInput {
 
         this._container.insertBefore(this._number, this._input);
     }
+
+    public set value(value: number) {
+        super.value = value;
+        this._number.value = this._input.value;
+    }
 }

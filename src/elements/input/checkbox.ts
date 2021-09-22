@@ -7,7 +7,6 @@ export type CheckboxInputOptions = BaseOptions & {
 
 export class CheckboxInput extends ValueInput<boolean> {
     protected _input: HTMLInputElement;
-    protected _internalHandler: () => void;
 
     public constructor(
         parent: HTMLElement,
@@ -18,6 +17,7 @@ export class CheckboxInput extends ValueInput<boolean> {
         super(parent, id, options);
 
         this._value = options.value ?? false;
+        this._default = this._value;
         this._handler = options.handler;
 
         this._input = document.createElement('input');

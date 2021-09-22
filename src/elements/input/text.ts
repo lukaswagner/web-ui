@@ -23,12 +23,13 @@ export class TextInput extends ValueInput<string> {
         const type = options.type ?? 'text';
 
         this._value = options.value ?? this.default(type);
+        this._default = this._value;
         this._handler = options.handler;
 
         this._input = document.createElement('input');
         this._input.id = this._id;
         this._input.type = type;
-        this._input.value = this._value.toString();
+        this._input.value = this._value;
         this._internalHandler = () => {
             this._value = this._input.value;
             this._handler?.(this._value);
@@ -41,7 +42,7 @@ export class TextInput extends ValueInput<string> {
 
     public set value(value: string) {
         super.value = value;
-        this._input.value = this._value.toString();
+        this._input.value = this._value;
     }
 
     public get value(): string {

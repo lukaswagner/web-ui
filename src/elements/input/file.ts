@@ -9,7 +9,13 @@ export type FileInputOptions = BaseOptions & {
 export class FileInput extends Input<FileList> {
     protected _input: HTMLInputElement;
     protected _button: HTMLButtonElement;
-    protected _internalHandler: () => void;
+
+    protected setButtonText(): void {
+        const files = this._input.files;
+        const multiple = files.length > 1 ? ` + ${files.length - 1}` : '';
+        this._button.textContent =
+            (files.item(0)?.name ?? 'None') + multiple;
+    }
 
     public constructor(
         parent: HTMLElement, id: string, options: FileInputOptions
@@ -23,9 +29,7 @@ export class FileInput extends Input<FileList> {
         if (options.multiple) this._input.multiple = true;
         this._internalHandler = () => {
             const files = this._input.files;
-            const multiple = files.length > 1 ? ` + ${files.length - 1}` : '';
-            this._button.textContent =
-                (files.item(0)?.name ?? 'None') + multiple;
+            this.setButtonText();
             this._handler?.(files);
         };
         this._input.onchange = this._internalHandler;
@@ -38,5 +42,10 @@ export class FileInput extends Input<FileList> {
 
         // file input does not use defaultHandleOnInit
         if(options.handleOnInit) this._internalHandler?.();
+    }
+
+    public reset(): void {
+        this._input.value = '';
+        this.setButtonText();
     }
 }

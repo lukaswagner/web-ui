@@ -21,6 +21,7 @@ export class TableOutput extends Value<Row[]> {
         super(parent, id, options);
 
         this._value = options.value ?? [];
+        this._default = this._value.map((r) => r.slice());
         this._head = options.head;
 
         this._output = document.createElement('table');
@@ -110,5 +111,9 @@ export class TableOutput extends Value<Row[]> {
 
     protected headOffset(): number {
         return this._head ? 1 : 0;
+    }
+
+    public reset(): void {
+        this.value = this._default.map((r) => r.slice());
     }
 }
