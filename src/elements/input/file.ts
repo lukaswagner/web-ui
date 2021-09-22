@@ -42,7 +42,7 @@ export class FileInput extends Input<FileList> {
         this._container.appendChild(this._button);
 
         // file input does not use defaultHandleOnInit
-        if(options.handleOnInit) this._internalHandler?.();
+        if (options.handleOnInit) this._internalHandler?.();
     }
 
     public reset(): void {

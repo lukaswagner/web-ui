@@ -9,7 +9,7 @@ export class UI {
     protected _container: HTMLElement;
     protected _handleOnInit: boolean;
 
-    public constructor(container: HTMLElement, handleOnInit: boolean = false) {
+    public constructor(container: HTMLElement, handleOnInit = false) {
         this._container = container;
         this._handleOnInit = handleOnInit;
     }

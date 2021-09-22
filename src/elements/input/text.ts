@@ -37,7 +37,8 @@ export class TextInput extends ValueInput<string> {
         this._input.onchange = this._internalHandler;
         this._container.appendChild(this._input);
 
-        if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
+        if (options.handleOnInit || defaultHandleOnInit)
+            this._internalHandler();
     }
 
     public override set value(value: string) {

@@ -80,7 +80,8 @@ export class SelectInput extends ValueInput<string, Selection> {
 
         this._container.appendChild(this._input);
 
-        if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
+        if (options.handleOnInit || defaultHandleOnInit)
+            this._internalHandler();
     }
 
     public override set value(value: string) {

@@ -9,8 +9,10 @@ export abstract class Element {
     protected _label: HTMLLabelElement;
 
     // @internal
-    public constructor(parent: HTMLElement, id: string, options: ElementOptions) {
-        if(parent === undefined && id === undefined && options === undefined) {
+    public constructor(
+        parent: HTMLElement, id: string, options: ElementOptions
+    ) {
+        if (parent === undefined && id === undefined && options === undefined) {
             throw new Error('Do not instantiate UI elements manually.');
         }
 
@@ -88,6 +90,6 @@ export class ValueInput<T, U = T>
 
     public override reset(invokeHandler?: boolean): void {
         this.value = this._default;
-        if(invokeHandler) this._internalHandler?.();
+        if (invokeHandler) this._internalHandler?.();
     }
 }

@@ -2,7 +2,7 @@ require('./style.css');
 require('./ui-1.css');
 require('./ui-2.css');
 
-import { UI, Element } from '..';
+import { Element, UI } from '..';
 
 const ui1 = new UI(document.getElementById('ui-1'), true);
 const elements = new Array<Element>();
@@ -87,7 +87,7 @@ elements.push(ui1.input.file({
 elements.push(ui1.input.checkbox({
     label: 'Checkbox input',
     handler: (v) => console.log('checkbox', v)
-}))
+}));
 const body = [...new Array<number>(5)]
     .map((_, i) => [i, i * i, String.fromCharCode(65 + i)]);
 const table = ui1.output.table({

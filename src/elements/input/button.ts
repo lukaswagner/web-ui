@@ -23,8 +23,8 @@ export class Button extends Input<void> {
         this._container.appendChild(this._button);
 
         // button does not use defaultHandleOnInit
-        if(options.handleOnInit) this._handler?.();
+        if (options.handleOnInit) this._handler?.();
     }
 
-    public reset(): void { };
+    public reset(): void { }
 }

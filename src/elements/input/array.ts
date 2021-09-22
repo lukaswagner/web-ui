@@ -39,7 +39,8 @@ export class ArrayInput extends ValueInput<number[]> {
             this._inputs.push(input);
         }
 
-        if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
+        if (options.handleOnInit || defaultHandleOnInit)
+            this._internalHandler();
     }
 
     public override set value(value: number[]) {

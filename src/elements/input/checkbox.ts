@@ -32,7 +32,8 @@ export class CheckboxInput extends ValueInput<boolean> {
         this._input.onchange = this._internalHandler;
         this._container.appendChild(this._input);
 
-        if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
+        if (options.handleOnInit || defaultHandleOnInit)
+            this._internalHandler();
     }
 
     public override set value(value: boolean) {
