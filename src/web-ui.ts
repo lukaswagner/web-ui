@@ -95,6 +95,12 @@ export class UI {
     public get elements(): Map<string, Element> {
         return this._elements;
     }
+
+    public reset(invokeHandler = false): void {
+        for (const element of this._elements.values()) {
+            element.reset(invokeHandler);
+        }
+    }
 }
 
 export * from './elements/base';
