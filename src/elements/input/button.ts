@@ -31,4 +31,6 @@ export class Button extends Input<void> {
     public invokeHandler(): void {
         this._handler?.();
     }
+
+    public override setFromObject(): void { }
 }

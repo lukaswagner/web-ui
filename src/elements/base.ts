@@ -29,6 +29,7 @@ export abstract class Element {
     }
 
     public abstract reset(invokeHandler?: boolean): void;
+    public abstract setFromObject(obj: unknown, invokeHandler?: boolean): void;
 }
 
 export type Handler<T> = (value: T) => void;
@@ -51,11 +52,10 @@ export abstract class Input<T> extends Element implements IInput<T> {
     }
 
     public abstract override reset(invokeHandler?: boolean): void;
-
     public abstract invokeHandler(): void;
 }
 
-export class Value<T> extends Element implements IValue<T> {
+export abstract class Value<T> extends Element implements IValue<T> {
     protected _value: T;
     protected _default: T;
 
@@ -69,6 +69,10 @@ export class Value<T> extends Element implements IValue<T> {
 
     public reset(): void {
         this.value = this._default;
+    }
+
+    public setFromObject(obj: unknown): void {
+        this.value = obj as T;
     }
 }
 
@@ -97,4 +101,9 @@ export abstract class ValueInput<T, U = T>
     }
 
     public abstract invokeHandler(): void;
+
+    public setFromObject(obj: unknown, invokeHandler?: boolean): void {
+        this.value = obj as T;
+        if (invokeHandler) this.invokeHandler();
+    }
 }

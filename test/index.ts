@@ -100,6 +100,26 @@ ui1.input.button({
     handler: () => ui1.reset(false),
 });
 
+const preset = {
+    'ui1': 123,
+    'ui2': 0.5,
+    'ui3': 0.5,
+    'ui4': 123,
+    'ui5': '123',
+    'ui6': '123',
+    'ui7': '#ff0000',
+    'ui8': [123, 456],
+    'ui9': [123, 456, 789],
+    'ui10': 'B',
+    'ui12': true,
+    'ui13': [[123]],
+};
+
+ui1.input.button({
+    text: 'apply preset',
+    handler: () => ui1.setFromObject(preset, true),
+});
+
 const ui2 = new UI(document.getElementById('ui-2'));
 const ui2n = ui2.input.number({
     label: 'Number input'

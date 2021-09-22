@@ -44,8 +44,8 @@ export class ArrayInput extends ValueInput<number[]> {
     }
 
     public override set value(value: number[]) {
-        value?.forEach((v, i) => this._value[i] = v);
-        value.forEach((v, i) => {
+        value?.forEach((v, i) => {
+            this._value[i] = v;
             this._inputs[i].value = v.toString();
         });
     }
@@ -56,5 +56,15 @@ export class ArrayInput extends ValueInput<number[]> {
 
     public invokeHandler(): void {
         this._handler?.(this._value);
+    }
+
+    public override setFromObject(obj: unknown, invokeHandler?: boolean): void {
+        if (!Array.isArray(obj)) return;
+        obj.slice(0, this._value.length).forEach((v, i) => {
+            if (typeof(v) !== 'number') return;
+            this._value[i] = v;
+            this._inputs[i].value = v.toString();
+        });
+        if (invokeHandler) this.invokeHandler();
     }
 }

@@ -101,6 +101,15 @@ export class UI {
             element.reset(invokeHandler);
         }
     }
+
+    public setFromObject(
+        preset: Record<string, unknown>, invokeHandler = false
+    ): void {
+        for (const key in preset) {
+            if (!this.elements.has(key)) continue;
+            this.elements.get(key).setFromObject(preset[key], invokeHandler);
+        }
+    }
 }
 
 export * from './elements/base';
