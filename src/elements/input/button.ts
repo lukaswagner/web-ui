@@ -27,4 +27,8 @@ export class Button extends Input<void> {
     }
 
     public reset(): void { }
+
+    public invokeHandler(): void {
+        this._handler?.();
+    }
 }

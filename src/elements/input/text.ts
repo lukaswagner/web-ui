@@ -63,4 +63,8 @@ export class TextInput extends ValueInput<string> {
                 break;
         }
     }
+
+    public invokeHandler(): void {
+        this._handler?.(this._value);
+    }
 }

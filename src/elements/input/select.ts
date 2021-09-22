@@ -103,4 +103,8 @@ export class SelectInput extends ValueInput<string, Selection> {
     public get index(): number {
         return this._index;
     }
+
+    public invokeHandler(): void {
+        this._handler?.({ value: this._value, index: this._index });
+    }
 }

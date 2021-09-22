@@ -49,4 +49,9 @@ export class FileInput extends Input<FileList> {
         this._input.value = '';
         this.setButtonText();
     }
+
+    public invokeHandler(): void {
+        const files = this._input.files;
+        this._handler?.(files);
+    }
 }

@@ -53,4 +53,8 @@ export class ArrayInput extends ValueInput<number[]> {
     public override get value(): number[] {
         return super.value;
     }
+
+    public invokeHandler(): void {
+        this._handler?.(this._value);
+    }
 }

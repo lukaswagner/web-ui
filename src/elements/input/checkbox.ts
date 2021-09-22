@@ -44,4 +44,8 @@ export class CheckboxInput extends ValueInput<boolean> {
     public override get value(): boolean {
         return super.value;
     }
+
+    public invokeHandler(): void {
+        this._handler?.(this._value);
+    }
 }
