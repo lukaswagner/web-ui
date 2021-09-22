@@ -1,4 +1,5 @@
 export type ElementOptions = {
+    id?: string;
     label?: string;
     handleOnInit?: boolean;
 }

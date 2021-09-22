@@ -1,20 +1,21 @@
 import * as i from './elements/input';
 import * as o from './elements/output';
 
-import { ElementOptions } from './elements/base';
+import { Element, ElementOptions } from './elements/base';
 
 export class UI {
     protected static _nextId = 0;
     protected _idPrefix = 'ui';
     protected _container: HTMLElement;
     protected _handleOnInit: boolean;
+    protected _elements = new Map<string, Element>();
 
     public constructor(container: HTMLElement, handleOnInit = false) {
         this._container = container;
         this._handleOnInit = handleOnInit;
     }
 
-    protected create<Type, Options>(
+    protected create<Type extends Element, Options extends ElementOptions>(
         type: {
             new(
                 parent: HTMLElement,
@@ -25,12 +26,15 @@ export class UI {
         },
         options: Options
     ): Type {
-        return new type(
+        const id = options.id ?? this._idPrefix + UI._nextId++;
+        const element = new type(
             this._container,
-            this._idPrefix + UI._nextId++,
+            id,
             options,
             this._handleOnInit
         );
+        this._elements.set(id, element);
+        return element;
     }
 
     public input = {
@@ -86,6 +90,10 @@ export class UI {
             return this.create<o.TableOutput, o.TableOutputOptions>(
                 o.TableOutput, options);
         }
+    }
+
+    public get elements(): Map<string, Element> {
+        return this._elements;
     }
 }
 
