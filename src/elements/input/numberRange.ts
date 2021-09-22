@@ -5,6 +5,7 @@ export type NumberRangeInputOptions = RangeInputOptions;
 export class NumberRangeInput extends RangeInput {
     protected _number: HTMLInputElement;
 
+    // @internal
     public constructor(
         parent: HTMLElement,
         id: string,

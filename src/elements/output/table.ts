@@ -1,4 +1,4 @@
-import { BaseOptions, Value } from '../base';
+import { ElementOptions, Value } from '../base';
 
 interface Printable {
     toString(): string
@@ -6,7 +6,7 @@ interface Printable {
 
 type Row = Printable[];
 
-export type TableOutputOptions = BaseOptions & {
+export type TableOutputOptions = ElementOptions & {
     head?: Row;
     value?: Row[];
 }
@@ -15,6 +15,7 @@ export class TableOutput extends Value<Row[]> {
     protected _head: Row;
     protected _output: HTMLTableElement;
 
+    // @internal
     public constructor(
         parent: HTMLElement, id: string, options: TableOutputOptions
     ) {

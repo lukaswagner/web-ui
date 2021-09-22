@@ -1,6 +1,6 @@
-import { BaseOptions, Handler, Input } from '../base';
+import { ElementOptions, Handler, Input } from '../base';
 
-export type ButtonOptions = BaseOptions & {
+export type ButtonOptions = ElementOptions & {
     text?: string;
     handler?: Handler<void>;
 }
@@ -8,6 +8,7 @@ export type ButtonOptions = BaseOptions & {
 export class Button extends Input<void> {
     protected _button: HTMLButtonElement;
 
+    // @internal
     public constructor(
         parent: HTMLElement, id: string, options: ButtonOptions
     ) {

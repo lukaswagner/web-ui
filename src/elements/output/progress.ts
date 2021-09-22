@@ -1,12 +1,13 @@
-import { BaseOptions, Value } from '../base';
+import { ElementOptions, Value } from '../base';
 
-export type ProgressOutputOptions = BaseOptions & {
+export type ProgressOutputOptions = ElementOptions & {
     value?: number;
 }
 
 export class ProgressOutput extends Value<number> {
     protected _output: HTMLProgressElement;
 
+    // @internal
     public constructor(
         parent: HTMLElement, id: string, options: ProgressOutputOptions
     ) {

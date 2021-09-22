@@ -1,6 +1,6 @@
-import { BaseOptions, Handler, ValueInput } from '../base';
+import { ElementOptions, Handler, ValueInput } from '../base';
 
-export type ArrayInputOptions = BaseOptions & {
+export type ArrayInputOptions = ElementOptions & {
     length?: number,
     value?: number[];
     handler?: Handler<number[]>;
@@ -9,6 +9,7 @@ export type ArrayInputOptions = BaseOptions & {
 export class ArrayInput extends ValueInput<number[]> {
     protected _inputs: HTMLInputElement[] = [];
 
+    // @internal
     public constructor(
         parent: HTMLElement,
         id: string,

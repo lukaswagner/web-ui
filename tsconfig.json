@@ -9,7 +9,8 @@
             "DOM",
             "ES2020"
         ],
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "stripInternal": true
     },
     "files": [
         "src/web-ui.ts"

@@ -1,6 +1,6 @@
-import { BaseOptions, Handler, Input } from '../base';
+import { ElementOptions, Handler, Input } from '../base';
 
-export type FileInputOptions = BaseOptions & {
+export type FileInputOptions = ElementOptions & {
     text?: string;
     multiple?: boolean;
     handler?: Handler<FileList>;
@@ -17,6 +17,7 @@ export class FileInput extends Input<FileList> {
             (files.item(0)?.name ?? 'None') + multiple;
     }
 
+    // @internal
     public constructor(
         parent: HTMLElement, id: string, options: FileInputOptions
     ) {

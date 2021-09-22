@@ -1,6 +1,6 @@
-import { BaseOptions, Handler, ValueInput } from '../base';
+import { ElementOptions, Handler, ValueInput } from '../base';
 
-export type NumberInputOptions = BaseOptions & {
+export type NumberInputOptions = ElementOptions & {
     value?: number;
     handler?: Handler<number>;
 }
@@ -8,6 +8,7 @@ export type NumberInputOptions = BaseOptions & {
 export class NumberInput extends ValueInput<number> {
     protected _input: HTMLInputElement;
 
+    // @internal
     public constructor(
         parent: HTMLElement,
         id: string,

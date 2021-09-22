@@ -1,8 +1,8 @@
-import { BaseOptions, Handler, ValueInput } from '../base';
+import { ElementOptions, Handler, ValueInput } from '../base';
 
 type TextType = 'text' | 'color' | 'email' | 'password' | 'url';
 
-export type TextInputOptions = BaseOptions & {
+export type TextInputOptions = ElementOptions & {
     type?: TextType;
     value?: string;
     handler?: Handler<string>;
@@ -12,6 +12,7 @@ export class TextInput extends ValueInput<string> {
     protected _input: HTMLInputElement;
     protected _internalHandler: () => void;
 
+    // @internal
     public constructor(
         parent: HTMLElement,
         id: string,

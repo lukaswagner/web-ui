@@ -12,6 +12,7 @@ export class RangeInput extends NumberInput {
     protected _max: number;
     protected _step: number;
 
+    // @internal
     public constructor(
         parent: HTMLElement,
         id: string,

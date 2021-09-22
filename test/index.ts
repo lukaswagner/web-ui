@@ -2,11 +2,10 @@ require('./style.css');
 require('./ui-1.css');
 require('./ui-2.css');
 
-import { UI } from '..';
-import { Base } from '../lib/elements/base';
+import { UI, Element } from '..';
 
 const ui1 = new UI(document.getElementById('ui-1'), true);
-const elements = new Array<Base>();
+const elements = new Array<Element>();
 elements.push(ui1.input.button({
     label: 'Button',
     text: 'Button',

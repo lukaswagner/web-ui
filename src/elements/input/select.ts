@@ -1,11 +1,11 @@
-import { BaseOptions, Handler, ValueInput } from '../base';
+import { ElementOptions, Handler, ValueInput } from '../base';
 
 type Selection = {
     index: number,
     value: string
 }
 
-export type SelectInputOptions = BaseOptions & {
+export type SelectInputOptions = ElementOptions & {
     /**
      * Visible selection options. Defaults to optionValues if not specified.
      * See https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement
@@ -35,6 +35,7 @@ export class SelectInput extends ValueInput<string, Selection> {
     protected _internalHandler: () => void;
     protected _index: number;
 
+    // @internal
     public constructor(
         parent: HTMLElement,
         id: string,

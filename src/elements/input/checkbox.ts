@@ -1,6 +1,6 @@
-import { BaseOptions, Handler, ValueInput } from '../base';
+import { ElementOptions, Handler, ValueInput } from '../base';
 
-export type CheckboxInputOptions = BaseOptions & {
+export type CheckboxInputOptions = ElementOptions & {
     value?: boolean;
     handler?: Handler<boolean>;
 }
@@ -8,6 +8,7 @@ export type CheckboxInputOptions = BaseOptions & {
 export class CheckboxInput extends ValueInput<boolean> {
     protected _input: HTMLInputElement;
 
+    // @internal
     public constructor(
         parent: HTMLElement,
         id: string,

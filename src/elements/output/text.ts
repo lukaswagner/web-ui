@@ -1,12 +1,13 @@
-import { BaseOptions, Value } from '../base';
+import { ElementOptions, Value } from '../base';
 
-export type TextOutputOptions = BaseOptions & {
+export type TextOutputOptions = ElementOptions & {
     value?: string;
 }
 
 export class TextOutput extends Value<string> {
     protected _output: HTMLSpanElement;
 
+    // @internal
     public constructor(
         parent: HTMLElement, id: string, options: TextOutputOptions
     ) {

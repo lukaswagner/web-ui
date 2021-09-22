@@ -1,14 +1,19 @@
-export type BaseOptions = {
+export type ElementOptions = {
     label?: string;
     handleOnInit?: boolean;
 }
 
-export abstract class Base {
+export abstract class Element {
     protected _id: string;
     protected _container: HTMLDivElement;
     protected _label: HTMLLabelElement;
 
-    public constructor(parent: HTMLElement, id: string, options: BaseOptions) {
+    // @internal
+    public constructor(parent: HTMLElement, id: string, options: ElementOptions) {
+        if(parent === undefined && id === undefined && options === undefined) {
+            throw new Error('Do not instantiate UI elements manually.');
+        }
+
         this._id = id;
 
         this._container = document.createElement('div');
@@ -34,7 +39,7 @@ export interface IValue<T> {
     get value(): T;
 }
 
-export abstract class Input<T> extends Base implements IInput<T> {
+export abstract class Input<T> extends Element implements IInput<T> {
     protected _handler: Handler<T>;
     protected _internalHandler: () => void;
 
@@ -45,7 +50,7 @@ export abstract class Input<T> extends Base implements IInput<T> {
     public abstract reset(invokeHandler?: boolean): void;
 }
 
-export class Value<T> extends Base implements IValue<T> {
+export class Value<T> extends Element implements IValue<T> {
     protected _value: T;
     protected _default: T;
 
@@ -63,7 +68,7 @@ export class Value<T> extends Base implements IValue<T> {
 }
 
 export class ValueInput<T, U = T>
-    extends Base implements IValue<T>, IInput<U> {
+    extends Element implements IValue<T>, IInput<U> {
     protected _value: T;
     protected _default: T;
     protected _handler: Handler<U>;
