@@ -7,7 +7,7 @@ export type ArrayInputOptions = BaseOptions & {
 }
 
 export class ArrayInput extends ValueInput<number[]> {
-    protected _inputs: HTMLInputElement[];
+    protected _inputs: HTMLInputElement[] = [];
     protected _internalHandler: () => void;
 
     public constructor(
@@ -35,6 +35,7 @@ export class ArrayInput extends ValueInput<number[]> {
             };
             input.onchange = this._internalHandler;
             this._container.appendChild(input);
+            this._inputs.push(input);
         }
 
         if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
