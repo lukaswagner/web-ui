@@ -47,7 +47,7 @@ export abstract class Input<T> extends Element implements IInput<T> {
         this._handler = handler;
     }
 
-    public abstract reset(invokeHandler?: boolean): void;
+    public abstract override reset(invokeHandler?: boolean): void;
 }
 
 export class Value<T> extends Element implements IValue<T> {
@@ -86,7 +86,7 @@ export class ValueInput<T, U = T>
         this._handler = handler;
     }
 
-    public reset(invokeHandler?: boolean): void {
+    public override reset(invokeHandler?: boolean): void {
         this.value = this._default;
         if(invokeHandler) this._internalHandler?.();
     }

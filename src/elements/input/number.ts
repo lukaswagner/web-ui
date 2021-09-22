@@ -35,12 +35,12 @@ export class NumberInput extends ValueInput<number> {
         if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
     }
 
-    public set value(value: number) {
+    public override set value(value: number) {
         super.value = value;
         this._input.value = this._value.toString();
     }
 
-    public get value(): number {
+    public override get value(): number {
         return super.value;
     }
 }

@@ -35,12 +35,12 @@ export class CheckboxInput extends ValueInput<boolean> {
         if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
     }
 
-    public set value(value: boolean) {
+    public override set value(value: boolean) {
         super.value = value;
         this._input.checked = this._value;
     }
 
-    public get value(): boolean {
+    public override get value(): boolean {
         return super.value;
     }
 }

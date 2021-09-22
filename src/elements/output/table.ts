@@ -32,14 +32,14 @@ export class TableOutput extends Value<Row[]> {
         this._container.appendChild(this._output);
     }
 
-    public set value(value: Row[]) {
+    public override set value(value: Row[]) {
         super.value = value ?? [];
         this.clean();
         this.buildTable();
         this.buildHead();
     }
 
-    public get value(): Row[] {
+    public override get value(): Row[] {
         return super.value;
     }
 
@@ -114,7 +114,7 @@ export class TableOutput extends Value<Row[]> {
         return this._head ? 1 : 0;
     }
 
-    public reset(): void {
+    public override reset(): void {
         this.value = this._default.map((r) => r.slice());
     }
 }

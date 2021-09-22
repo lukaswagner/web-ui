@@ -32,7 +32,6 @@ export type SelectInputOptions = ElementOptions & {
 
 export class SelectInput extends ValueInput<string, Selection> {
     protected _input: HTMLSelectElement;
-    protected _internalHandler: () => void;
     protected _index: number;
 
     // @internal
@@ -84,13 +83,13 @@ export class SelectInput extends ValueInput<string, Selection> {
         if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
     }
 
-    public set value(value: string) {
+    public override set value(value: string) {
         super.value = value;
         this._input.value = this._value;
         this._index = this._input.selectedIndex;
     }
 
-    public get value(): string {
+    public override get value(): string {
         return super.value;
     }
 

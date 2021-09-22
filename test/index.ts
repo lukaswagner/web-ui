@@ -105,13 +105,16 @@ ui1.input.button({
 });
 
 const ui2 = new UI(document.getElementById('ui-2'));
-ui2.input.button({
-    label: 'Button',
-    text: 'Button'
-});
-ui2.input.number({
+const ui2n = ui2.input.number({
     label: 'Number input'
 });
-ui2.input.numberRange({
+const ui2nr = ui2.input.numberRange({
     label: 'Number/range input'
+});
+ui2.input.button({
+    label: 'Button',
+    text: 'Button',
+    handler: () => {
+        console.log(ui2n.value, ui2nr.value);
+    }
 });

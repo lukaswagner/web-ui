@@ -42,14 +42,14 @@ export class ArrayInput extends ValueInput<number[]> {
         if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
     }
 
-    public set value(value: number[]) {
+    public override set value(value: number[]) {
         value?.forEach((v, i) => this._value[i] = v);
         value.forEach((v, i) => {
             this._inputs[i].value = v.toString();
         });
     }
 
-    public get value(): number[] {
+    public override get value(): number[] {
         return super.value;
     }
 }

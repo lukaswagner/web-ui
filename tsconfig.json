@@ -10,7 +10,8 @@
             "ES2020"
         ],
         "moduleResolution": "node",
-        "stripInternal": true
+        "stripInternal": true,
+        "noImplicitOverride": true
     },
     "files": [
         "src/web-ui.ts"

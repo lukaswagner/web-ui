@@ -22,12 +22,12 @@ export class ProgressOutput extends Value<number> {
         this._container.appendChild(this._output);
     }
 
-    public set value(value: number) {
+    public override set value(value: number) {
         super.value = value;
         this._output.value = this._value;
     }
 
-    public get value(): number {
+    public override get value(): number {
         return super.value;
     }
 }

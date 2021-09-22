@@ -10,7 +10,6 @@ export type TextInputOptions = ElementOptions & {
 
 export class TextInput extends ValueInput<string> {
     protected _input: HTMLInputElement;
-    protected _internalHandler: () => void;
 
     // @internal
     public constructor(
@@ -41,12 +40,12 @@ export class TextInput extends ValueInput<string> {
         if(options.handleOnInit || defaultHandleOnInit) this._internalHandler();
     }
 
-    public set value(value: string) {
+    public override set value(value: string) {
         super.value = value;
         this._input.value = this._value;
     }
 
-    public get value(): string {
+    public override get value(): string {
         return super.value;
     }
 
