@@ -22,7 +22,7 @@ export class TextInput extends ValueInput<string> {
 
         const type = options.type ?? 'text';
 
-        this._value = options.value ?? this.default(type);
+        this._value = options.value ?? this.defaultForType(type);
         this._default = this._value;
         this._handler = options.handler;
 
@@ -50,7 +50,7 @@ export class TextInput extends ValueInput<string> {
         return super.value;
     }
 
-    protected default(type: TextType): string {
+    protected defaultForType(type: TextType): string {
         switch (type) {
             case 'text':
             case 'email':

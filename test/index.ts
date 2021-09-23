@@ -120,6 +120,14 @@ ui1.input.button({
     handler: () => ui1.setFromObject(preset, true),
 });
 
+ui1.input.button({
+    text: 'random default',
+    handler: () => {
+        prog.default = Math.random();
+        prog.reset();
+    }
+});
+
 const ui2 = new UI(document.getElementById('ui-2'));
 const ui2n = ui2.input.number({
     label: 'Number input'

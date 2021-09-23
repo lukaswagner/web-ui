@@ -67,6 +67,14 @@ export abstract class Value<T> extends Element implements IValue<T> {
         return this._value;
     }
 
+    public set default(value: T) {
+        this._default = value;
+    }
+
+    public get default(): T {
+        return this._default;
+    }
+
     public reset(): void {
         this.value = this._default;
     }
@@ -89,6 +97,14 @@ export abstract class ValueInput<T, U = T>
 
     public get value(): T {
         return this._value;
+    }
+
+    public set default(value: T) {
+        this._default = value;
+    }
+
+    public get default(): T {
+        return this._default;
     }
 
     public set handler(handler: Handler<U>) {
