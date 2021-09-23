@@ -69,7 +69,7 @@ ui1.input.array({
     value: [1, 2, 3],
     handler: (v) => console.log('array3', v)
 });
-ui1.input.select({
+const select = ui1.input.select({
     label: 'Selection input',
     optionTexts: ['A', 'B'],
     handler: (v) => console.log('select', v)
@@ -125,6 +125,14 @@ ui1.input.button({
     handler: () => {
         prog.default = Math.random();
         prog.reset();
+    }
+});
+
+ui1.input.button({
+    text: 'change select',
+    handler: () => {
+        select.values = ['C', 'D'];
+        select.texts = ['E', 'F'];
     }
 });
 

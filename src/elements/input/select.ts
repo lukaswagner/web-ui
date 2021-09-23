@@ -33,6 +33,8 @@ export type SelectInputOptions = ElementOptions & {
 export class SelectInput extends ValueInput<string, Selection> {
     protected _input: HTMLSelectElement;
     protected _index: number;
+    protected _values: string[];
+    protected _texts: string[];
 
     // @internal
     public constructor(
@@ -46,22 +48,9 @@ export class SelectInput extends ValueInput<string, Selection> {
         this._input = document.createElement('select');
         this._input.id = this._id;
 
-        const numOptions = Math.max(
-            options.optionValues?.length ?? 0,
-            options.optionTexts?.length ?? 0);
-
-        for (let i = 0; i < numOptions; i++) {
-            const elem = document.createElement('option');
-            elem.value =
-                options.optionValues?.[i] ??
-                options.optionTexts?.[i] ??
-                i.toString();
-            elem.text =
-                options.optionTexts?.[i] ??
-                options.optionValues?.[i] ??
-                i.toString();
-            this._input.appendChild(elem);
-        }
+        this._values = options.optionValues;
+        this._texts = options.optionTexts;
+        this.buildOptions();
 
         if (options.index) this._input.selectedIndex = options.index;
         if (options.value) this._input.value = options.value;
@@ -106,5 +95,38 @@ export class SelectInput extends ValueInput<string, Selection> {
 
     public invokeHandler(): void {
         this._handler?.({ value: this._value, index: this._index });
+    }
+
+    protected buildOptions(): void {
+        const num = Math.max(
+            this._values?.length ?? 0,
+            this._texts?.length ?? 0);
+
+        while (this._input.length) this._input.remove(0);
+
+        for (let i = 0; i < num; i++) {
+            const elem = document.createElement('option');
+            elem.value = this._values?.[i] ?? this._texts?.[i] ?? i.toString();
+            elem.text = this._texts?.[i] ?? this._values?.[i] ?? i.toString();
+            this._input.appendChild(elem);
+        }
+    }
+
+    public set values(values: string[]) {
+        this._values = values;
+        this.buildOptions();
+    }
+
+    public get values(): string[] {
+        return this._values;
+    }
+
+    public set texts(texts: string[]) {
+        this._texts = texts;
+        this.buildOptions();
+    }
+
+    public get texts(): string[] {
+        return this._texts;
     }
 }
