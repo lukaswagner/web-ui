@@ -129,4 +129,10 @@ export class SelectInput extends ValueInput<string, Selection> {
     public get texts(): string[] {
         return this._texts;
     }
+
+    public addOption(value: string, text?: string): void {
+        this._values.push(value);
+        this._texts.push(text ?? value);
+        this.buildOptions();
+    }
 }
