@@ -136,6 +136,15 @@ ui1.input.button({
     }
 });
 
+const button = ui1.input.button({
+    text: 'change me',
+    handler: () => {
+        button.label.innerText = 'Hi';
+        button.elements[0].innerText = 'Done';
+        button.container.style.setProperty('background', '#ffaaaa');
+    }
+});
+
 const ui2 = new UI(document.getElementById('ui-2'));
 const ui2n = ui2.input.number({
     label: 'Number input'

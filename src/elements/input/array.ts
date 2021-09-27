@@ -67,4 +67,8 @@ export class ArrayInput extends ValueInput<number[]> {
         });
         if (invokeHandler) this.invokeHandler();
     }
+
+    public override get elements(): HTMLInputElement[] {
+        return this._inputs.slice();
+    }
 }

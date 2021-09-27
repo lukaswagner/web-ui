@@ -34,4 +34,8 @@ export class Button extends Input<void> {
     }
 
     public override setFromObject(): void { }
+
+    public get elements(): HTMLButtonElement[] {
+        return [this._button];
+    }
 }

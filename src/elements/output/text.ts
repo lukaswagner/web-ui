@@ -30,4 +30,8 @@ export class TextOutput extends Value<string> {
     public override get value(): string {
         return super.value;
     }
+
+    public get elements(): HTMLSpanElement[] {
+        return [this._output];
+    }
 }

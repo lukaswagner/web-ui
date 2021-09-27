@@ -56,4 +56,8 @@ export class FileInput extends Input<FileList> {
     }
 
     public override setFromObject(): void { }
+
+    public get elements(): [HTMLInputElement, HTMLButtonElement] {
+        return [this._input, this._button];
+    }
 }

@@ -30,4 +30,8 @@ export class ProgressOutput extends Value<number> {
     public override get value(): number {
         return super.value;
     }
+
+    public get elements(): HTMLProgressElement[] {
+        return [this._output];
+    }
 }

@@ -48,4 +48,8 @@ export class CheckboxInput extends ValueInput<boolean> {
     public invokeHandler(): void {
         this._handler?.(this._value);
     }
+
+    public get elements(): HTMLInputElement[] {
+        return [this._input];
+    }
 }

@@ -67,4 +67,8 @@ export class TextInput extends ValueInput<string> {
     public invokeHandler(): void {
         this._handler?.(this._value);
     }
+
+    public get elements(): HTMLInputElement[] {
+        return [this._input];
+    }
 }

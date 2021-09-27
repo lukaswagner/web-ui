@@ -30,6 +30,22 @@ export abstract class Element {
 
     public abstract reset(invokeHandler?: boolean): void;
     public abstract setFromObject(obj: unknown, invokeHandler?: boolean): void;
+
+    /**
+     * HTML div element containing both the label and the actual UI elements.
+     */
+    public get container(): HTMLDivElement {
+        return this._container;
+    }
+
+    /**
+     * HTML label element.
+     */
+    public get label(): HTMLLabelElement {
+        return this._label;
+    }
+
+    public abstract get elements(): HTMLElement[];
 }
 
 export type Handler<T> = (value: T) => void;

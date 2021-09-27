@@ -117,4 +117,8 @@ export class TableOutput extends Value<Row[]> {
     public override reset(): void {
         this.value = this._default.map((r) => r.slice());
     }
+
+    public get elements(): HTMLTableElement[] {
+        return [this._output];
+    }
 }

@@ -46,4 +46,8 @@ export class NumberRangeInput extends RangeInput {
     public override get value(): number {
         return super.value;
     }
+
+    public override get elements(): HTMLInputElement[] {
+        return [this._number, this._input];
+    }
 }

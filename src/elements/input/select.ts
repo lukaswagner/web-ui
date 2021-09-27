@@ -135,4 +135,8 @@ export class SelectInput extends ValueInput<string, Selection> {
         this._texts.push(text ?? value);
         this.buildOptions();
     }
+
+    public get elements(): HTMLSelectElement[] {
+        return [this._input];
+    }
 }
