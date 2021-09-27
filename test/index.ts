@@ -74,7 +74,7 @@ const select = ui1.input.select({
     optionTexts: ['A', 'B'],
     handler: (v) => console.log('select', v)
 });
-ui1.input.file({
+const files = ui1.input.file({
     label: 'File input',
     text: 'Open',
     multiple: true,
@@ -142,6 +142,13 @@ const button = ui1.input.button({
         button.label.innerText = 'Hi';
         button.elements[0].innerText = 'Done';
         button.container.style.setProperty('background', '#ffaaaa');
+    }
+});
+
+ui1.input.button({
+    text: 'log files',
+    handler: () => {
+        console.log(files.value);
     }
 });
 

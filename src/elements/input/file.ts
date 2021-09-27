@@ -1,4 +1,4 @@
-import { ElementOptions, Handler, Input } from '../base';
+import { ElementOptions, Handler, ValueInput } from '../base';
 
 export type FileInputOptions = ElementOptions & {
     text?: string;
@@ -6,9 +6,17 @@ export type FileInputOptions = ElementOptions & {
     handler?: Handler<FileList>;
 }
 
-export class FileInput extends Input<FileList> {
+export class FileInput extends ValueInput<FileList> {
     protected _input: HTMLInputElement;
     protected _button: HTMLButtonElement;
+
+    public override get value(): FileList {
+        return this._input.files;
+    }
+
+    public override set value(f: FileList) {
+        this._input.files = f;
+    }
 
     protected setButtonText(): void {
         const files = this._input.files;
@@ -45,7 +53,7 @@ export class FileInput extends Input<FileList> {
         if (options.handleOnInit) this._internalHandler?.();
     }
 
-    public reset(): void {
+    public override reset(): void {
         this._input.value = '';
         this.setButtonText();
     }
