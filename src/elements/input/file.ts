@@ -46,6 +46,7 @@ export class FileInput extends ValueInput<FileList> {
         this._button = document.createElement('button');
         this._button.id = this._id;
         if (options.text) this._button.textContent = options.text;
+        this._button.type = 'button';
         this._button.onclick = () => this._input.click();
         this._container.appendChild(this._button);
 
