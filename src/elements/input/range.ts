@@ -28,6 +28,9 @@ export class RangeInput extends NumberInput {
         this.max = options.max ?? this._value + fallbackRange;
         this.step = options.step ?? (this._max - this._min) / 20;
 
+        // need to re-set value after input configuration
+        this._input.value = this._value.toString();
+
         if (options.triggerHandlerOnMove) {
             this._input.oninput = this._internalHandler;
             this._input.onchange = undefined;
