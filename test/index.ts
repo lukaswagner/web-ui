@@ -6,75 +6,81 @@ require('./ui-3.css');
 import { UI } from '..';
 
 const ui1 = new UI(document.getElementById('ui-1'), true);
+
 ui1.input.button({
     label: 'Button',
     text: 'Button',
     handler: () => console.log('button', 'hi'),
     handleOnInit: true
 });
+
 ui1.input.number({
     label: 'Number input',
     value: 10,
     handler: (v) => console.log('number', v)
 });
+
 const prog = ui1.output.progress({
     label: 'Progress output'
 });
+
 ui1.input.range({
     label: 'Range input',
-    value: 0,
-    min: 0,
-    max: 1,
+    min: 0, max: 1, value: 0,
     handler: (v) => {
         prog.value = v;
         console.log('range', v);
     },
     triggerHandlerOnMove: true
 });
+
 ui1.input.numberRange({
     label: 'Number/range input',
-    value: 10,
+    min: 0, max: 100, step: 1, value: 10,
     handler: (v: number) => console.log('numberRange', v),
-    triggerHandlerOnMove: true,
-    min: 0,
-    max: 100,
-    step: 1
+    triggerHandlerOnMove: true
 });
-const to = ui1.output.text({
+
+const textOutput = ui1.output.text({
     label: 'Text output',
     value: 'foo',
 });
 ui1.input.text({
     label: 'Text input',
-    value: to.value,
+    value: textOutput.value,
     handler: (v) => {
-        to.value = v;
+        textOutput.value = v;
         console.log('text', v);
     }
 });
+
 ui1.input.text({
     label: 'Color input',
     type: 'color',
     value: '#ffffff',
     handler: (v) => console.log('color', v)
 });
+
 ui1.input.array({
     label: 'vec2 input',
     length: 2,
     value: [1, 2],
     handler: (v) => console.log('array2', v)
 });
+
 ui1.input.array({
     label: 'vec3 input',
     length: 3,
     value: [1, 2, 3],
     handler: (v) => console.log('array3', v)
 });
+
 const select = ui1.input.select({
     label: 'Selection input',
     optionTexts: ['A', 'B'],
     handler: (v) => console.log('select', v)
 });
+
 const files = ui1.input.file({
     label: 'File input',
     text: 'Open',
@@ -82,10 +88,18 @@ const files = ui1.input.file({
     handler: (v) => console.log('file', v),
     handleOnInit: true
 });
+ui1.input.button({
+    text: 'log files',
+    handler: () => {
+        console.log(files.value);
+    }
+});
+
 ui1.input.checkbox({
     label: 'Checkbox input',
     handler: (v) => console.log('checkbox', v)
 });
+
 const body = [...new Array<number>(5)]
     .map((_, i) => [i, i * i, String.fromCharCode(65 + i)]);
 const table = ui1.output.table({
@@ -95,11 +109,6 @@ const table = ui1.output.table({
 });
 table.setRow(1, ['foo']);
 table.setCell(4, 2, 'bar');
-
-ui1.input.button({
-    text: 'reset',
-    handler: () => ui1.reset(false),
-});
 
 const preset = {
     'ui1': 123,
@@ -116,44 +125,36 @@ const preset = {
     'ui13': [[123]],
 };
 
-ui1.input.button({
-    text: 'apply preset',
-    handler: () => ui1.setFromObject(preset, true),
-});
-
-ui1.input.button({
-    text: 'random default',
-    handler: () => {
-        prog.default = Math.random();
-        prog.reset();
-    }
-});
-
-ui1.input.button({
-    text: 'change select',
-    handler: () => {
-        select.values = ['C', 'D'];
-        select.texts = ['E', 'F'];
-    }
-});
-
-const button = ui1.input.button({
-    text: 'change me',
-    handler: () => {
-        button.label.innerText = 'Hi';
-        button.elements[0].innerText = 'Done';
-        button.container.style.setProperty('background', '#ffaaaa');
-    }
-});
-
-ui1.input.button({
-    text: 'log files',
-    handler: () => {
-        console.log(files.value);
-    }
+const buttons = ui1.input.buttonArray({
+    buttons: [{
+        text: 'reset',
+        handler: () => ui1.reset(false),
+    }, {
+        text: 'apply preset',
+        handler: () => ui1.setFromObject(preset, true),
+    }, {
+        text: 'random default',
+        handler: () => {
+            prog.default = Math.random();
+            prog.reset();
+        }
+    }, {
+        text: 'change select',
+        handler: () => {
+            select.values = ['C', 'D'];
+            select.texts = ['E', 'F'];
+        }
+    }, {
+        text: 'change me',
+        handler: () => {
+            buttons.elements[4].innerText = 'Done';
+            buttons.elements[4].style.setProperty('background', '#bbffbb');
+        }
+    }]
 });
 
 const ui2 = new UI(document.getElementById('ui-2'));
+
 const ui2n = ui2.input.number({
     label: 'Number input'
 });

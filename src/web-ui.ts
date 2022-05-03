@@ -41,6 +41,10 @@ export class UI {
         button: (options: i.ButtonOptions = {}): i.Button => {
             return this.create<i.Button, i.ButtonOptions>(i.Button, options);
         },
+        buttonArray: (options: i.ButtonArrayOptions = {}): i.ButtonArray => {
+            return this.create<i.ButtonArray, i.ButtonArrayOptions>(
+                i.ButtonArray, options);
+        },
         number: (options: i.NumberInputOptions = {}): i.NumberInput => {
             return this.create<i.NumberInput, i.NumberInputOptions>(
                 i.NumberInput, options);

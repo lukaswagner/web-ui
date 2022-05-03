@@ -1,5 +1,6 @@
 export * from './input/array';
 export * from './input/button';
+export * from './input/buttonArray';
 export * from './input/checkbox';
 export * from './input/file';
 export * from './input/number';
