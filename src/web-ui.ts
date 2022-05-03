@@ -79,7 +79,7 @@ export class UI {
             return this.create<i.CheckboxInput, i.CheckboxInputOptions>(
                 i.CheckboxInput, options);
         }
-    }
+    };
 
     public output = {
         text: (options: o.TextOutputOptions = {}): o.TextOutput => {
@@ -94,7 +94,7 @@ export class UI {
             return this.create<o.TableOutput, o.TableOutputOptions>(
                 o.TableOutput, options);
         }
-    }
+    };
 
     public get elements(): Map<string, Element> {
         return this._elements;
