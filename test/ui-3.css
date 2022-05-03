@@ -1,0 +1,17 @@
+#ui-3 {
+    outline: 1px solid black;
+    width: 40ch;
+    padding: 5px;
+}
+
+#ui-3 div {
+    display: flex;
+}
+
+#ui-3 div:not(:first-child) {
+    padding-top: 5px;
+}
+
+#ui-3 label {
+    margin-right: auto;
+}

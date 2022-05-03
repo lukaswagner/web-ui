@@ -1,6 +1,7 @@
 require('./style.css');
 require('./ui-1.css');
 require('./ui-2.css');
+require('./ui-3.css');
 
 import { UI } from '..';
 
@@ -95,12 +96,6 @@ const table = ui1.output.table({
 table.setRow(1, ['foo']);
 table.setCell(4, 2, 'bar');
 
-ui1.input.number({
-    label: 'handleOnInit test',
-    handler: () => console.log('This should not be printed on init.'),
-    handleOnInit: false
-});
-
 ui1.input.button({
     text: 'reset',
     handler: () => ui1.reset(false),
@@ -171,4 +166,11 @@ ui2.input.button({
     handler: () => {
         console.log(ui2n.value, ui2nr.value);
     }
+});
+
+const ui3 = new UI(document.getElementById('ui-3'), true);
+ui3.input.number({
+    label: 'handleOnInit test',
+    handler: () => console.log('This should not be printed on init.'),
+    handleOnInit: false
 });
