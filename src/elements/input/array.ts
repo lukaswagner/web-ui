@@ -39,7 +39,7 @@ export class ArrayInput extends ValueInput<number[]> {
             this._inputs.push(input);
         }
 
-        if (options.handleOnInit || defaultHandleOnInit)
+        if (options.handleOnInit ?? defaultHandleOnInit)
             this._internalHandler();
     }
 

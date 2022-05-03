@@ -69,7 +69,7 @@ export class SelectInput extends ValueInput<string, Selection> {
 
         this._container.appendChild(this._input);
 
-        if (options.handleOnInit || defaultHandleOnInit)
+        if (options.handleOnInit ?? defaultHandleOnInit)
             this._internalHandler();
     }
 

@@ -32,7 +32,7 @@ export class CheckboxInput extends ValueInput<boolean> {
         this._input.onchange = this._internalHandler;
         this._container.appendChild(this._input);
 
-        if (options.handleOnInit || defaultHandleOnInit)
+        if (options.handleOnInit ?? defaultHandleOnInit)
             this._internalHandler();
     }
 

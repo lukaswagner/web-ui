@@ -95,6 +95,12 @@ const table = ui1.output.table({
 table.setRow(1, ['foo']);
 table.setCell(4, 2, 'bar');
 
+ui1.input.number({
+    label: 'handleOnInit test',
+    handler: () => console.log('This should not be printed on init.'),
+    handleOnInit: false
+});
+
 ui1.input.button({
     text: 'reset',
     handler: () => ui1.reset(false),
